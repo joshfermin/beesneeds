@@ -65,3 +65,4 @@ gem 'rspec-rails', :group => [:devlopment, :test]
 gem 'reek'
 gem 'd3-rails'
 #gem "galetahub-simple_captcha", :require => "simple_captcha"
+gem 'rake', '10.1.0'
