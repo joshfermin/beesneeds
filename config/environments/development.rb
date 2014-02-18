@@ -14,7 +14,7 @@ Beesneeds::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -27,4 +27,14 @@ Beesneeds::Application.configure do
   # number of complex assets.
   config.assets.debug = true
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+#  config.action_mailer.delivery_method = :smtp
+ ActionMailer::Base.smtp_settings = {  
+  :address              => "smtp.gmail.com",  
+  :port                 => 587,  
+  :domain               => "gmail.com",  
+  :user_name            => "krabby127@gmail.com",  
+  :password             => "Za3@cha$",  
+  :authentication       => "plain"
+  # :enable_starttls_auto => true # I don't have this, but it should work anyway 
+} 
 end
