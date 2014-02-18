@@ -33,7 +33,7 @@ Beesneeds::Application.configure do
   :port                 => 587,  
   :domain               => "gmail.com",  
   :user_name            => "krabby127@gmail.com",  
-  :password             => "Za3@cha$",  
+  :password             => "#####",  
   :authentication       => "plain"
   # :enable_starttls_auto => true # I don't have this, but it should work anyway 
 } 
