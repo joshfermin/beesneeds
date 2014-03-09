@@ -14,6 +14,10 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
+  <div>
+  <%= recaptcha_tags %>
+  </div> <!--Render reCAPTCHA at sign up -->
+
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
