@@ -13,6 +13,5 @@
  */
 
 body { padding-top: 70px; }
-footer { margin-top: 200px; }
-table, td, th { vertical-align: middle !important; border: none !important; }
-th { border-bottom: 1px solid #DDD !important; }
+footer { margin-top: 100px; }
+

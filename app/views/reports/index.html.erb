@@ -1,6 +1,6 @@
-<h1>Listing reports</h1>
+<h1>Reports List</h1>
 
-<table id="reportsTbl">
+<table class="reportTable", id="reportsTbl">
   <thead>
     <tr>
       <th>Activity</th>
@@ -32,7 +32,7 @@
         <td><%= report.comment %></td>
         <td><%= link_to 'Show Report', report %></td>
         <td><%= link_to 'Edit Report', edit_report_path(report) %></td>
-        <td><%= link_to 'Delete Report', report, method: :delete, data: { confirm: 'Are you wish to delete this report?' } %></td>
+        <td><%= link_to 'Delete Report', report, method: :delete, data: { confirm: 'Do you wish to delete this report?' } %></td>
       </tr>
     <% end %>
   </tbody>

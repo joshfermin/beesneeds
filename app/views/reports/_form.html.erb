@@ -1,4 +1,4 @@
-    <script language="javascript" type="text/javascript">
+<!--    <script language="javascript" type="text/javascript">
 	function toggle(obj) {
 	var el = document.getElementById(obj);
 	if ( el.style!="display:none") {
@@ -8,7 +8,7 @@
 		el.style="display:";
 	}
 }
-    </script>
+    </script>-->
 
 <%= form_for(@report) do |f| %>
   <% if @report.errors.any? %>
@@ -25,9 +25,9 @@
   
 <%= render "#{@report.current_step}_page", :f => f %>
 
-  
   <div class="actions">
     <%= f.submit "Continue" %>
     <%= f.submit "Back", :name => "back_button" unless @report.first_page? %>
   </div>
+  
 <% end %>
