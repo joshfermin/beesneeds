@@ -1,17 +1,17 @@
 <h1>Listing reports</h1>
 
-<table>
+<table id="reportsTbl">
   <thead>
     <tr>
       <th>Activity</th>
       <th>Block</th>
-      <th>Comment</th>
       <th>Date</th>
       <th>Image</th>
       <th>Plug state</th>
       <th>Plug type</th>
       <th>Pluga</th>
       <th>Plugn</th>
+      <th>Comment</th>
       <th></th>
       <th></th>
       <th></th>
@@ -23,16 +23,16 @@
       <tr>
         <td><%= report.activity %></td>
         <td><%= report.block_id %></td>
-        <td><%= report.comment %></td>
         <td><%= report.date %></td>
         <td><%= report.image %></td>
         <td><%= report.plug_state %></td>
         <td><%= report.plug_type %></td>
         <td><%= report.pluga %></td>
         <td><%= report.plugn %></td>
-        <td><%= link_to 'Show', report %></td>
-        <td><%= link_to 'Edit', edit_report_path(report) %></td>
-        <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= report.comment %></td>
+        <td><%= link_to 'Show Report', report %></td>
+        <td><%= link_to 'Edit Report', edit_report_path(report) %></td>
+        <td><%= link_to 'Delete Report', report, method: :delete, data: { confirm: 'Are you wish to delete this report?' } %></td>
       </tr>
     <% end %>
   </tbody>

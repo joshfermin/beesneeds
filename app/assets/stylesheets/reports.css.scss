@@ -1,3 +1,29 @@
 // Place all the styles related to the Reports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#reportsTbl {
+    font-weight: normal;
+}
+
+#reportsTbl thead tr th{
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+#reportsTbl tfoot tr th{
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+#reportsTbl tbody tr td{
+border-style:solid;
+}
+
+th{
+    width: 85px;
+}
+
+div .field{
+margin:0;
+padding:15px;
+}

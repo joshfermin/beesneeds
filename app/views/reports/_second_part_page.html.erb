@@ -7,3 +7,13 @@
   <%= f.label 'Please select plug column (This is the number that is above the plug).' %><br>
   <%= f.select :plugn, [['1', '1'], ['2', '2'], ['3', '3'], ['4', '4']] %>
   </div>
+
+  <div style="float:left;" id='column' class="field">
+  <%= f.label 'Please indicate state of plug.' %><br>
+  <%= f.select :plug_state, [['Intact'], ['Partially Intact']] %>
+  </div>
+
+  <div style="float:left;" id='column' class="field">
+  <%= f.label 'Please select type of plug.' %><br>
+  <%= f.select :plug_type, [['Grass'], ['Mud'], ['Resin'], ['Silk']] %>
+  </div>
