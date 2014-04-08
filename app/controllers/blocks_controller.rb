@@ -1,6 +1,6 @@
 # Handles HTTP requests for Blocks
 class BlocksController < ApplicationController
-  before_action :set_block, only: [:show, :edit, :update, :delete]
+  before_action :set_block, only: [:show, :edit, :update, :destroy]
 
   # GET /blocks
   # GET /blocks.json
@@ -55,8 +55,8 @@ class BlocksController < ApplicationController
 
   # DELETE /blocks/1
   # DELETE /blocks/1.json
-  def delete
-    @block.delete
+  def destroy
+    @block.destroy
     respond_to do |format|
       format.html { redirect_to blocks_url }
       format.json { head :no_content }
