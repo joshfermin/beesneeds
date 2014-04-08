@@ -7,12 +7,7 @@
 
 <p>
   <strong>Block:</strong>
-  <%= @report.block_id %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= @report.comment %>
+  <%= @report.block_number %>
 </p>
 
 <p>
@@ -43,6 +38,11 @@
 <p>
   <strong>Plug Number:</strong>
   <%= @report.plugn %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @report.comment %>
 </p>
 
 <%= link_to 'Edit', edit_report_path(@report) %> |

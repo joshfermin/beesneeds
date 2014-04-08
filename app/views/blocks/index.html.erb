@@ -1,10 +1,11 @@
-<h1>Blocks List</h1>
+<h1>Blocks List - (<%=(@blocks.count)%>) </h1>
 
 <table>
   <thead>
     <tr>
-      <th>Block number</th>
-      <th>User</th>
+      <th>Block #</th>
+      <th>Block ID</th>
+      
       <th></th>
       <th></th>
       <th></th>
@@ -15,10 +16,12 @@
     <% @blocks.each do |block| %>
       <tr>
         <td><%= block.block_number %></td>
-        <td><%= block.user_id %></td>
+        <td><%= block.block_id %></td>
+
+        
         <td><%= link_to 'Show', block %></td>
         <td><%= link_to 'Edit', edit_block_path(block) %></td>
-        <td><%= link_to 'Destroy', block, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', block, method: :delete, data: { confirm: 'Do you wish to delete this block?' } %></td>
       </tr>
     <% end %>
   </tbody>

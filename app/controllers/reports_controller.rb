@@ -25,6 +25,22 @@ class ReportsController < ApplicationController
     @report.block_id = session[:block_id]
     @report.date = session[:date]
     session[:report_params] ||= {}
+
+    session[:report_params].deep_merge!(params[:report]) if params[:report]
+    @report = Report.new(session[:report_params])
+    session[:date] = @report.date
+    session[:block_id] = @report.block_id
+    @report.current_step = session[:report_step]
+    
+    if params[:back_button]
+      @report.previous_step
+    elsif @report.last_page?
+      @report.save
+    else
+      @report.next_step
+    end
+   
+    session[:report_step] = @report.current_step
   end
 
   # Support for the following requests:
@@ -37,6 +53,7 @@ class ReportsController < ApplicationController
   # * POST /reports.json
   def create
     session[:report_params].deep_merge!(params[:report]) if params[:report]
+
     @report = Report.new(session[:report_params])
     session[:date] = @report.date
     session[:block_id] = @report.block_id

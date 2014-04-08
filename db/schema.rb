@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131204125308) do
+ActiveRecord::Schema.define(version: 20140407040823) do
 
   create_table "blocks", force: true do |t|
     t.string   "block_number"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "block_id"
   end
 
   create_table "reports", force: true do |t|
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 20131204125308) do
     t.integer  "plugn"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "block_number"
   end
 
   create_table "users", force: true do |t|
