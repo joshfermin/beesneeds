@@ -7,6 +7,11 @@ class ReportsController < ApplicationController
   # * GET /reports.json
   def index
     @reports = current_user.reports
+    respond_to do |format|
+      format.html
+      format.csv { send_data @reports.to_csv }
+      format.xls #{ send_data @reports.to_csv(col_sep: "\t") }
+    end
   end
 
   # Support for the following requests:
