@@ -24,7 +24,7 @@
         <td><%= report.activity %></td>
         <td><%= report.block_number %></td>
         <td><%= report.date %></td>
-        <td><%= report.image %></td>
+        <td><%= image_tag(report.image_url, :width => 100) if report.image.present? %></td>
         <td><%= report.plug_state %></td>
         <td><%= report.plug_type %></td>
         <td><%= report.pluga %></td>
