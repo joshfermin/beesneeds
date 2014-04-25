@@ -1,4 +1,4 @@
-<h1>Blocks List - (<%=(@blocks.count)%>) </h1>
+<h2>Bee Blocks you are Observing this Season - (<%=(@blocks.count)%>) </h2>
 
 <table>
   <thead>
@@ -12,6 +12,10 @@
     </tr>
   </thead>
 
+  <p>
+    Please verify that you have entered your bee block number correctly. If you need to change it, choose Edit next to the block number below.
+  </p>
+
   <tbody>
     <% @blocks.each do |block| %>
       <tr>
@@ -19,8 +23,7 @@
         <td><%= block.block_id %></td>
 
         
-        <td><%= link_to 'Show', block %></td>
-        <td><%= link_to 'Edit', edit_block_path(block) %></td>
+        <td><%= link_to 'Edit ', edit_block_path(block) %> |</td>
         <td><%= link_to 'Delete', block, method: :delete, data: { confirm: 'Do you wish to delete this block?' } %></td>
       </tr>
     <% end %>
@@ -29,4 +32,10 @@
 
 <br>
 
-<%= link_to 'New Block', new_block_path %>
+<%= button_to 'Register a Bee Block', new_block_path, method: :get %>
+
+<br>
+
+<p>
+  <strong>To report data on nesting activity at your bee block, <%= link_to "please click here", reports_path %></strong>.
+</p>

@@ -22,7 +22,7 @@
     <% @reports.each do |report| %>
       <tr>
         <td><%= report.activity %></td>
-        <td><%= report.block_number %></td>
+        <td><%= report.block_id %></td>
         <td><%= report.date %></td>
         <td><%= image_tag(report.image_url, :width => 100) if report.image.present? %></td>
         <td><%= report.plug_state %></td>

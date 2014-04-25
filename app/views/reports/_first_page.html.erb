@@ -1,41 +1,48 @@
+  <div style="float:left;" id='column' class="type">
+    <%= f.label 'Select type of plug.' %><br>
+    <%= f.select :plug_type, [['Spider webs'], ['Silk'], ['Loose debris'], ['Resin'], ['Resin w/ Debris'], ['Chewed Leaves'], ['Chewed Leaves w/ Pebbles'], ['Whole leaf pieces'], ['Whole petal pieces'], ['Grass blades'], ['Wood'], ['Plant fibers'], ['Plant fibers w/ Debris'], ['Mud']] %>
+  </div>
+
+  <div style="float:relative;" id='column' class="type">
+    <%= f.label 'Is your nest plug whole?' %><br>
+    <%= f.select :plug_state, [['Yes the plug is intact'], ['No, there is a small, off-center hole in the plug'],  ['No, there is a fairly large hole in the plug']] %>
+  </div>
+
+
   <div class="field">
     <%= f.label 'Which block is this report for?' %><br>
     <%= f.collection_select :block_id, Block.where(:user_id => current_user.id), :id, :block_number, :prompt => false  %>
   </div>
 
   <div class="field">
-    <%= f.label 'Which date was the observation made on?' %><br>
+    <%= f.label 'When did you make this observation?' %><br>
     <%= f.date_select :date %>
   </div>
 
   <div id="activity" class="field">
     <a href="#" onchange="('row').toggle(); return false;"></a>
     <%= f.label 'What activity would you like to report?' %><br>
-    <%= f.select :activity, [['New plug', 'new'], ['Change in plug', 'change'], ['Something other than plug in tunnel', 'other'], ['Miscellaneous observation', 'other']] %>
-  </div>
+    <%= f.select :activity, [['New plug', 'new'], ['Change in plug', 'change'], ['Something other than plug in tunnel', 'other'], ['There has been no new activity at my block', 'other'], ['Miscellaneous observation', 'other']] %>
+  </div><br>
+
+  <p>
+    Leave row and column blank if you are reporting that you saw no new activity or<br /> if you have a miscellaneous observation that is not associated with a particular nest tunnel.
+  </p>
 
   <div id='row' class="field" >
     <%= f.label 'Select plug row (This is the letter to the left of the plug).' %><br>
-    <%= f.select :pluga, [['a', 'a'], ['b', 'b'], ['c', 'c'], ['d', 'd'], ['e', 'e'], ['f', 'f'], ['g', 'g'], ['h', 'h'], 
+    <%= f.select :pluga, [['', ''], ['a', 'a'], ['b', 'b'], ['c', 'c'], ['d', 'd'], ['e', 'e'], ['f', 'f'], ['g', 'g'], ['h', 'h'],
               ['i', 'i'], ['j', 'j']] %>
   </div>
 
   <div id='column' class="field">
     <%= f.label 'Select plug column (This is the number that is above the plug).' %><br>
-    <%= f.select :plugn, [['1', '1'], ['2', '2'], ['3', '3'], ['4', '4']] %>
+    <%= f.select :plugn, [['', ''], ['1', '1'], ['2', '2'], ['3', '3'], ['4', '4']] %>
   </div>
 
-  <div style="float:left;" id='column' class="type">
-    <%= f.label 'Indicate state of plug.' %><br>
-    <%= f.select :plug_state, [['Fully Intact'], ['Partially Intact'], ['Not Intact']] %>
-  </div>
-
-  <div style="float:relative;" id='column' class="type">
-    <%= f.label 'Select type of plug.' %><br>
-    <%= f.select :plug_type, [['Grass'], ['Mud'], ['Resin'], ['Silk']] %>
-  </div>
 
   <div>
-    <%= f.label "Select Image (optional)" %>
+    <%= f.label "Optional: Select Image (What is the subject of the photo you are uploading?)" %><br>
+    <%= f.select :image, [['Nest plug'], ['Insect at my bee block'], ['Insect not at my bee block'], ['Miscellaneous']] %><br><br>
     <%= f.file_field :image %>
-  </div>
+  </div><br>
