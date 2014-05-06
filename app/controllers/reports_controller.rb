@@ -6,7 +6,12 @@ class ReportsController < ApplicationController
   # * GET /reports
   # * GET /reports.json
   def index
-    @reports = current_user.reports
+    if current_user.admin? == false
+      @reports = current_user.reports
+    else
+      @reports = Report.all
+    end
+
     respond_to do |format|
       format.html
       format.csv { send_data @reports.to_csv }

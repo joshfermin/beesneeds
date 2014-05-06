@@ -8,19 +8,19 @@
       <%= devise_error_messages! %>
 
       <div><%= f.label :email %>
-      <%= f.email_field :email, :autofocus => true %></div>
+      <%= f.text_filed :email, :autofocus => true %></div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <div><%= f.label :password, "Password (leave blank if unchanged)" %>
+      <div><%= f.label :password, "New Password" %>
       <%= f.password_field :password, :autocomplete => "off" %></div>
 
       <div><%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation %></div>
 
-      <div><%= f.label :current_password, "Current Password" %>
+      <div><%= f.label :current_password, "Old Password" %>
       <%= f.password_field :current_password %></div>
 
       <div><%= f.submit "Update",  class: "btn btn-large btn-primary" %></div>
