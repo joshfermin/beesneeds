@@ -62,9 +62,9 @@ gem 'cucumber-rails', :group => :test, :require => false
 gem 'capybara', :group => :test
 gem 'database_cleaner', :group => :test
 gem 'email_spec', :group => :test
-gem 'factory_girl_rails', :group => [:devloplment, :test]
-gem 'rspec-rails', :group => [:devlopment, :test]
+gem 'factory_girl_rails', :group => [:development, :test]
+gem 'rspec-rails', :group => [:development, :test]
 gem 'reek'
 gem 'd3-rails'
 #gem "galetahub-simple_captcha", :require => "simple_captcha"
-gem 'rake', '10.1.0'
+gem 'bootstrap-sass', '2.3.2.0'
