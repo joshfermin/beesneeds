@@ -1,0 +1,40 @@
+<header class="navbar navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class = "container">
+         <ul class = "nav pull-left">
+           <li><%= image_tag('bee.png', size:"60x250", id: "logo")%></li>
+           <li><h3>The Beesneeds</h3></li>
+         </ul>
+
+
+        <!--<li class="active"><a href="/reports/new">Enter Data</a></li>-->
+        <nav>
+          <ul class="nav pull-right">
+            <% if user_signed_in? %>
+                <li id="fat-menu" class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <strong><%= current_user.email %></strong>. <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to 'Edit profile', edit_user_registration_path%></li>
+                    <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %> </li>
+                  </ul>
+            <% else %>
+                <li> <%= link_to "Sign up", new_user_registration_path%> </li>
+                <li> <%= link_to "Login", new_user_session_path %> </li>
+            <% end %>
+          </ul>
+
+          <% if user_signed_in? %>
+            <ul class = "nav pull-right">
+                <li><a href="/reports">Data Reports</a></li>
+                <li><a href="/blocks">Your Blocks</a></li>
+                <li><a href="/pages/stat">Recent Activity</a></li>
+                <li><a href="/pages/info">About Us</a></li>
+            </ul>
+          <% end %>
+
+        </nav>
+        </div>
+    </div>
+</header>
