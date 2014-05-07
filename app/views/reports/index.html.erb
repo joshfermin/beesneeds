@@ -2,10 +2,10 @@
     <h1>Admin Reports List - (<%=(@reports.count)%>) </h1>
 <% else %>
     <h1>Reports List - (<%=(@reports.count)%>) </h1>
-    <div class="center hero-unit">
 <% end %>
 
 <% if @reports.count == 0 %>
+    <div class="center hero-unit">
     <p>Enter some data: </p>
     <%= link_to 'New Report', new_report_path , class: "btn btn-large btn-default"%>
     </div>
