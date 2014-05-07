@@ -12,10 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :block_number, "Please enter your six-digit bee block number:" %><br>
+    <%= f.label :block_number, "Please enter your six-digit bee block number:" %>
     <%= f.text_field :block_number %>
-  </div>
+  </div> <br/>
+
   <div class="actions">
-    <%= f.submit "Register Block" %>
+    <%= f.submit "Register Block", class:"btn btn-large btn-primary" %>
   </div>
 <% end %>

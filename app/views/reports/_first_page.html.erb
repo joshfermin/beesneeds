@@ -1,60 +1,70 @@
-<div class = "center hero-unit">
-  <div class="field">
-    <%= f.label 'Select type of plug.' %>
-    <%= f.select :plug_type, [[''],['Spider webs'], ['Silk'], ['Loose debris'], ['Resin'], ['Resin w/ Debris'], ['Chewed Leaves'], ['Chewed Leaves w/ Pebbles'], ['Whole leaf pieces'], ['Whole petal pieces'], ['Grass blades'], ['Wood'], ['Plant fibers'], ['Plant fibers w/ Debris'], ['Mud']] %>
-  </div>
+<div class = "hero-unit">
+  <div class="row-fluid">
+    <div class="columnA pull-left">
+      <h3>Bee Block Plug </h3>
+      <div class="field">
+        <%= f.label 'Select type of plug.' %>
+        <%= f.select :plug_type, [[''],['Spider webs'], ['Silk'], ['Loose debris'], ['Resin'], ['Resin w/ Debris'], ['Chewed Leaves'], ['Chewed Leaves w/ Pebbles'], ['Whole leaf pieces'], ['Whole petal pieces'], ['Grass blades'], ['Wood'], ['Plant fibers'], ['Plant fibers w/ Debris'], ['Mud']] %>
+      </div>
 
-  <div class="field">
-    <%= f.label 'Is your nest plug whole?' %>
-    <%= f.select :plug_state, [[''],['Yes the plug is intact'], ['No, there is a small, off-center hole in the plug'],  ['No, there is a fairly large hole in the plug']] %>
-  </div>
+      <div class="field">
+        <%= f.label 'Is your nest plug whole?' %>
+        <%= f.select :plug_state, [[''],['Yes the plug is intact'], ['No, there is a small, off-center hole in the plug'],  ['No, there is a fairly large hole in the plug']] %>
+      </div>  <br/>
 
-  <div class="field">
-    <%= f.label 'Which block is this report for?' %>
-    <%= f.collection_select :block_id, Block.where(:user_id => current_user.id), :id, :block_number, :prompt => false  %>
-  </div>
+      <div class="field">
+        <%= f.label 'Which block is this report for?' %>
+        <%= f.collection_select :block_id, Block.where(:user_id => current_user.id), :id, :block_number, :prompt => false  %>
+      </div> <br/>
 
-  <div class="field">
-    <%= f.label 'When did you make this observation?' %>
-    <%= f.date_select :date, :class => "datepicker" %>
-  </div>
-
-  <div id="activity" class="field">
-    <a href="#" onchange="('row').toggle(); return false;"></a>
-    <%= f.label 'What activity would you like to report?' %>
-    <%= f.select :activity, [[''],['New plug', 'new'], ['Change in plug', 'change'], ['Something other than plug in tunnel', 'other'], ['There has been no new activity at my block', 'other'], ['Miscellaneous observation', 'other']] %>
-  </div>
-
-  <div class="caption">
-    <p>Leave row and column blank if you are reporting that you saw no new activity or<br /> if you have a miscellaneous observation that is not associated with a particular nest tunnel.</p>
-  </div>
-
-  <div id='row' class="field" >
-    <%= f.label 'Select plug row (This is the letter to the left of the plug).' %>
-    <%= f.select :pluga, [[], ['a', 'a'], ['b', 'b'], ['c', 'c'], ['d', 'd'], ['e', 'e'], ['f', 'f'], ['g', 'g'], ['h', 'h'],
-              ['i', 'i'], ['j', 'j']] %>
-  </div>
-
-  <div id='column' class="field">
-    <%= f.label 'Select plug column (This is the number that is above the plug).' %>
-    <%= f.select :plugn, [['', ''], ['1', '1'], ['2', '2'], ['3', '3'], ['4', '4']] %>
-  </div>
+      <div class="field">
+        <%= f.label 'When did you make this observation?' %>
+        <%= f.date_select :date, :class => "datepicker" %>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+    </div>
 
 
-  <div>
-    <%= f.label "Optional: Select Image (What is the subject of the photo you are uploading?)" %>
-    <%= f.select :image, [[''],['Nest plug'], ['Insect at my bee block'], ['Insect not at my bee block'], ['Miscellaneous']] %><br />
-    <%= f.file_field :image %>
-  </div>
 
-  <div class="actions">
-    <br />
-    <%= f.submit "Continue" %>
+  <div class="columnB pull-right">
+    <h3>Observations </h3>
+      <div id="activity" class="field">
+        <a href="#" onchange="('row').toggle(); return false;"></a>
+        <%= f.label 'What activity would you like to report?' %>
+        <%= f.select :activity, [[''],['New plug', 'new'], ['Change in plug', 'change'], ['Something other than plug in tunnel', 'other'], ['There has been no new activity at my block', 'other'], ['Miscellaneous observation', 'other']] %>
+      </div>
+
+      <div class="field" >
+        <%= f.label 'Select plug row (This is the letter to the left of the plug).' %>
+        <%= f.select :pluga, [[], ['a', 'a'], ['b', 'b'], ['c', 'c'], ['d', 'd'], ['e', 'e'], ['f', 'f'], ['g', 'g'], ['h', 'h'],
+                  ['i', 'i'], ['j', 'j']] %>
+      </div>
+
+      <div class="field">
+        <%= f.label 'Select plug column (This is the number that is above the plug).' %>
+        <%= f.select :plugn, [['', ''], ['1', '1'], ['2', '2'], ['3', '3'], ['4', '4']] %>
+        <h4><small>Leave row and column blank if you are reporting that you saw no new activity or if you have a miscellaneous observation that is not associated with a particular nest tunnel.</small></h4>
+
+      </div>
+
+
+
+
+      <div>
+        <%= f.label "Optional: Select Image (What is the subject of the photo you are uploading?)" %>
+        <%= f.select :image, [[''],['Nest plug'], ['Insect at my bee block'], ['Insect not at my bee block'], ['Miscellaneous']] %><br />
+        <%= f.file_field :image %>
+      </div>
+
+
+    </div>
+    </div>
+  <div class="center">
+    <%= f.submit "Submit Report", class:"center btn btn-large btn-primary" %>
   </div>
 </div>
 
-<script>
-    $(function() {
-    $('.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
-    });
-</script>
+
+

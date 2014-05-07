@@ -1,6 +1,17 @@
-<h1>Admin Reports List - (<%=(@reports.count)%>) </h1>
+<% if current_user.admin? == true %>
+    <h1>Admin Reports List - (<%=(@reports.count)%>) </h1>
+<% else %>
+    <h1>Reports List - (<%=(@reports.count)%>) </h1>
+    <div class="center hero-unit">
+<% end %>
 
-<table class="table table-striped table-hover">
+<% if @reports.count == 0 %>
+    <p>Enter some data: </p>
+    <%= link_to 'New Report', new_report_path , class: "btn btn-large btn-default"%>
+    </div>
+<% else %>
+
+<table class="center table table-striped table-hover">
   <thead>
     <tr>
       <th>Activity</th>
@@ -43,3 +54,5 @@
 <%= link_to 'New Report', new_report_path , class: "btn"%> |
 <%= link_to 'CSV', reports_path(format: "csv") , class: "btn"%> |
 <%= link_to 'Excel', reports_path(format: "xls") , class: "btn"%>
+</div>
+<%end%>

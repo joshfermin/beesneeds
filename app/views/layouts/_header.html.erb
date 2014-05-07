@@ -3,7 +3,7 @@
       <div class = "container">
          <ul class = "nav pull-left">
            <li><%= image_tag('bee.png', size:"55x250", id: "logo")%></li>
-           <li><h4><%= link_to "The Beesneeds", root_path %></h4></li>
+           <li><h4><%= link_to "The Beesneeds", root_path, :style=>'color:#000000;' %></h4></li>
          </ul>
 
 
@@ -25,13 +25,21 @@
             <% end %>
           </ul>
 
-          <% if user_signed_in? #and current_user.admin? == false %>
+          <% if user_signed_in? and current_user.admin? == false %>
             <ul class = "nav pull-right">
                 <li><a href="/reports">Data Reports</a></li>
                 <li><a href="/blocks">Your Blocks</a></li>
                 <li><a href="/pages/stat">Recent Activity</a></li>
             </ul>
+            <% if current_user.admin? == true %>
+                  <ul class = "nav pull-right">
+                    <li><a href="/reports">Data Reports</a></li>
+                    <li><a href="/blocks">Bee Blocks</a></li>
+                    <li><a href="/pages/stat">Recent Activity</a></li>
+                  </ul>
+            <% end %>
           <% end %>
+
 
         </nav>
         </div>

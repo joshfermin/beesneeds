@@ -5,7 +5,12 @@ class BlocksController < ApplicationController
   # GET /blocks
   # GET /blocks.json
   def index
-    @blocks = Block.where(:user_id => current_user.id)
+    if current_user.admin?
+      @blocks = Block.all
+    else
+      @blocks = Block.where(:user_id => current_user.id)
+    end
+
   end
 
   # GET /blocks/1
