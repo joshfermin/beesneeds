@@ -2,6 +2,7 @@
 class Report < ActiveRecord::Base
   belongs_to :block
   mount_uploader :image, PictureUploader
+  validates :plug_type, :plug_state, :date, :activity, :presence => true
 
  attr_writer :current_step
 
