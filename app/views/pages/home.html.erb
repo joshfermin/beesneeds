@@ -1,8 +1,17 @@
-<%= image_tag("beesneeds.png", size: "200", :class => "beesneeds_photo", :align => "right") %><br><br><h1>Welcome to The Bees’ Needs Data Entry and Photo Upload Site</h1><br>
 
-<div class="hero-unit">
-    <p>If this is your first time here, you will need to <strong><%= link_to "register your bee block.", new_block_path %></strong>
-    </p>
-    <h3>If you’ve previously registered your bee block, <strong><%= link_to "click here to Enter Data", new_report_path %></strong>
-    </h3>
-</div>
+<% if current_user.admin? == true %>
+    <h1> Welcome Admin </h1>
+    <p> If this is your first time logging in, please update your credentials.</p>
+    <div class=""></div>
+
+
+
+<% else %>
+    <div class="hero-unit">
+      <%= image_tag("beesneeds.png", size: "200", :class => "beesneeds_photo", :align => "right") %><br><br><h1>Welcome to The Bees’ Needs Data Entry and Photo Upload Site</h1><br>
+      <p>If this is your first time here, you will need to <strong><%= link_to "register your bee block.", new_block_path %></strong>
+      </p>
+      <h3>If you’ve previously registered your bee block, <strong><%= link_to "click here to Enter Data", new_report_path %></strong>
+      </h3>
+    </div>
+<% end %>
