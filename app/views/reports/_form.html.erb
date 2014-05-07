@@ -12,8 +12,9 @@
 
 <%= form_for(@report) do |f| %>
   <% if @report.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@report.errors.count, "error") %> prohibited this report from being saved:</h2>
+    <div class="alert alert-danger">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <p><%= pluralize(@report.errors.count, "error") %> prohibited this report from being saved:</p>
 
       <ul>
       <% @report.errors.full_messages.each do |msg| %>

@@ -83,11 +83,9 @@ class ReportsController < ApplicationController
       render "new"
     else
       session[:report_step] = session[:report_params] = nil
-      flash[:notice] = "Report saved"
+      flash[:success] = "Report saved"
       redirect_to @report
     end
-    
-     
   end
    
   

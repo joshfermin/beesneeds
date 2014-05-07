@@ -1,6 +1,6 @@
-<h2>Bee Blocks you are Observing this Season - (<%=(@blocks.count)%>) </h2>
+<h1>Your Bee Blocks - (<%=(@blocks.count)%>) </h1>
 
-<div class = "hero-unit">
+<div class = "center hero-unit">
 <table class = "table table-striped table-hover">
   <thead>
     <tr>
@@ -10,9 +10,7 @@
     </tr>
   </thead>
 
-  <p>
-    Please verify that you have entered your bee block number correctly. If you need to change it, choose Edit next to the block number below.
-  </p>
+
 
   <tbody>
     <% @blocks.each do |block| %>
@@ -28,12 +26,16 @@
 </table>
 
 <br>
+  <div class="btn-group btn-group-justified">
+    <div class="btn-group">
+      <%= button_to 'Register a Bee Block', new_block_path, method: :get, class: "btn btn-large btn-primary" %>
+    </div>
+    <div class="btn-group">
+      <%= button_to 'Report Activity', reports_path, class: "btn btn-large btn-primary" %>
+    </div>
+  </div>
 
-<%= button_to 'Register a Bee Block', new_block_path, method: :get, class: "btn btn-large btn-primary" %>
 
 <br>
 
-<p>
-  <strong>To report data on nesting activity at your bee block, <%= link_to "please click here", reports_path %></strong>.
-</p>
 </div>
