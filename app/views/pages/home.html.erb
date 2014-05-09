@@ -3,7 +3,7 @@
     <%= image_tag("beesneeds.png", size: "200",  :align => "left") %><br/><h1>Data Entry and Photo Upload Site</h1> <h2> You are logged in as: Admin </h2><br><br>
     <div class="center hero-unit">
         <% if current_user.first_name == "Administrator" %>
-            <p> You have not updated your credentials, please  <strong><%= link_to "click here.", edit_user_registration_path %></strong> </p>
+          <div class="alert alert-danger"><p> You have not updated your credentials, please  <strong><%= link_to "click here.", edit_user_registration_path %></strong> </p></div>
             <p>Be sure to change everything to ensure full security and gain access to the rest of the website.</p>
         <% else %>
             <p>As the admin, you are granted access to all of the reports from all the volunteers signed up. You are also granted access to view all the bee blocks registered.</p>
