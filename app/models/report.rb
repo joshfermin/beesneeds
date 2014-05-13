@@ -2,8 +2,8 @@
 class Report < ActiveRecord::Base
   belongs_to :block
   mount_uploader :image, PictureUploader
-  validates :plug_type, :presence => true
-  validates :plug_state, :presence => true
+  #validates :plug_type, :presence => true
+  #validates :plug_state, :presence => true
   validates :date, :presence => true
   validates :activity, :presence => true
 

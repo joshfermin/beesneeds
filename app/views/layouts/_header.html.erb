@@ -16,9 +16,10 @@
                     <strong><%= current_user.email %></strong>. <b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a href="/reports">Data Reports</a></li>
-                    <li><a href="/blocks">Your Blocks</a></li>
+                    <li ><%= link_to 'Report Data', new_report_path %></li>
+                    <li><a href="/blocks">Your Bee Blocks</a></li>
                     <li><a href="/pages/stat">Recent Activity</a></li>
+                    <li role="presentation" class="divider"></li>
                     <li role="presentation" class="divider"></li>
                     <li><%= link_to 'Edit profile', edit_user_registration_path%></li>
                     <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %> </li>
@@ -31,15 +32,15 @@
 
           <% if user_signed_in? and current_user.admin? == false %>
             <ul class = "nav pull-right">
-                <li><a href="/reports">Data Reports</a></li>
-                <li><a href="/blocks">Your Blocks</a></li>
+                <li><%= link_to 'Report Data', new_report_path %></li>
+                <li><a href="/blocks">Your Bee Blocks</a></li>
                 <li><a href="/pages/stat">Recent Activity</a></li>
             </ul>
           <% end %>
           <% if user_signed_in? and current_user.admin? == true %>
               <ul class = "nav pull-right">
-                <li><a href="/reports">Data Reports</a></li>
-                <li><a href="/blocks">Bee Blocks</a></li>
+                <li><%= link_to 'Report Data', new_report_path %></li>
+                <li><a href="/blocks">Your Bee Blocks</a></li>
                 <li><a href="/pages/stat">Recent Activity</a></li>
               </ul>
           <% end %>
