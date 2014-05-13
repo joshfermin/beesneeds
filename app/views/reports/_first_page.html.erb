@@ -40,6 +40,11 @@
     </div>
 
     <div class="field">
+    <%= f.label "Has your plug's placement changed?" %>
+    <%= f.select :plug_placement, [[''],['Recessed more than 1/2 inch'], ['Recessed 1/4 to 1/2 inch'],  ['recessed less than 1/4 inch'],  ['Flush with the entrance'],  ['Protruding from the face of the block']] %>
+    </div>
+
+    <div class="field">
     <%= f.label 'Comments or additional observations?' %>
     <%= f.text_area :comment%>
     </div>
@@ -49,11 +54,6 @@
     <%= f.select :image, [[''],['Nest plug'], ['Insect at my bee block'], ['Insect not at my bee block'], ['Whole Block'], ['Miscellaneous']] %><br />
     <%= f.file_field :image %>
     </div> <br/>
-
-
-
-
-    <br/>
 
   <div class="center">
     <%= f.submit "Submit Report", class:"center btn btn-large btn-primary" %>

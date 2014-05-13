@@ -10,7 +10,13 @@
     <%= link_to 'New Report', new_report_path , class: "btn btn-large btn-default"%>
     </div>
 <% else %>
-
+    <div class="center">
+    <div class="center btn-group btn-group-xs">
+      <%= link_to 'New Report', new_report_path , class: "btn btn-medium btn-primary"%>
+      <%= link_to 'Export as CSV', reports_path(format: "csv") , class: "btn btn-medium btn-primary"%>
+      <%= link_to 'Export to Excel', reports_path(format: "xls") , class: "btn btn-medium btn-primary"%>
+    </div>
+    </div><br/>
 <table class="center table table-striped table-hover">
   <thead>
     <tr>
@@ -22,7 +28,8 @@
       <th>Plug type</th>
       <th>Plug Row</th>
       <th>Plug Col</th>
-      <th>Comment</th>
+      <th>Plug Placement</th>
+      <th>Comments</th>
       <th></th>
       <th></th>
       <th></th>
@@ -40,6 +47,7 @@
         <td><%= report.plug_type %></td>
         <td><%= report.pluga %></td>
         <td><%= report.plugn %></td>
+        <td><%= report.plug_placement %></td>
         <td><%= report.comment %></td>
         <td><%= link_to 'Show Report', report %></td>
         <td><%= link_to 'Edit Report', edit_report_path(report) %></td>
@@ -50,9 +58,5 @@
 </table>
 
 <br>
-
-<%= link_to 'New Report', new_report_path , class: "btn"%> |
-<%= link_to 'CSV', reports_path(format: "csv") , class: "btn"%> |
-<%= link_to 'Excel', reports_path(format: "xls") , class: "btn"%>
 </div>
 <%end%>
