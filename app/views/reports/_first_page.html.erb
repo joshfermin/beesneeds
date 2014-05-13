@@ -31,7 +31,7 @@
 
     <div class="field">
     <%= f.label "If you're reporting on the presence of a new plug, select a plug type." %>
-    <%= f.select :plug_type, [[''],['Spider webs'], ['Silk'], ['Loose debris'], ['Resin'], ['Resin w/ Debris'], ['Chewed Leaves'], ['Chewed Leaves w/ Pebbles'], ['Whole leaf pieces'], ['Whole petal pieces'], ['Grass blades'], ['Wood'], ['Plant fibers'], ['Plant fibers w/ Debris'], ['Mud']] %>
+    <%= f.select :plug_type, [[''],['Spider webs'], ['Silk'], ['Loose debris'], ['Resin'], ['Resin w/ Debris'], ['Chewed Leaves'], ['Chewed Leaves w/ Pebbles'], ['Whole leaf pieces'], ['Whole petal pieces'], ['Grass blades'], ['Wood'], ['Plant fibers'], ['Plant fibers w/ Debris'], ['Mud'], ["I really don't know"]] %>
     </div>
 
     <div class="field">
@@ -45,7 +45,7 @@
     </div>
 
     <div class="field">
-    <%= f.label 'Comments or additional observations?' %>
+    <%= f.label "Please feel free to add a comment or description to help us learn more about what you've observed." %>
     <%= f.text_area :comment%>
     </div>
 
