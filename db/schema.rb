@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140514173858) do
+ActiveRecord::Schema.define(version: 20140514181827) do
 
   create_table "blocks", force: true do |t|
     t.string   "block_number"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140514173858) do
     t.string   "comment"
     t.string   "image"
     t.datetime "updated_at"
+    t.date     "date"
   end
 
   create_table "reports", force: true do |t|

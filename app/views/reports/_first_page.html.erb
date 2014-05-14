@@ -19,13 +19,13 @@
     <h3><small style="color:black">Leave row and column blank if you are reporting that you saw no new activity or if you have a miscellaneous observation that is not associated with a particular nest tunnel.</small></h3>
 
     <div class="field" >
-    <%= f.label 'Select plug row (This is the letter to the left of the plug).' %>
+    <%= f.label 'Select plug row letter:' %>
     <%= f.select :pluga, [[], ['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E'], ['F', 'F'], ['G', 'G'], ['H', 'H'],
                           ['I', 'I'], ['J', 'J']] %>
     </div>
 
     <div class="field">
-    <%= f.label 'Select plug column (This is the number that is above the plug).' %>
+    <%= f.label 'Select plug column number:' %>
     <%= f.select :plugn, [['', ''], ['1', '1'], ['2', '2'], ['3', '3'], ['4', '4']] %>
     </div>
 
