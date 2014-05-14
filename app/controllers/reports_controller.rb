@@ -1,7 +1,7 @@
 # Handles HTTP requests for Reports
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
-
+  helper_method :sort_column, :sort_direction
   # Support for the following requests:
   # * GET /reports
   # * GET /reports.json
@@ -13,6 +13,7 @@ class ReportsController < ApplicationController
          @user_reports << block.block_number
       end
       @reports = Report.where(:block_number => @user_reports)
+      @reports = @reports.order(sort_column + " " + sort_direction)
     else
       @reports = Report.all
     end
@@ -131,5 +132,13 @@ class ReportsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
       params.require(:report).permit(:activity, :block_id, :comment, :date, :image, :plug_state, :plug_type, :pluga, :plugn)
+    end
+
+    def sort_column
+      Report.column_names.include?(params[:sort]) ? params[:sort] : "date"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 end
