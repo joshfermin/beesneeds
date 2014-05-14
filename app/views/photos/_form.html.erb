@@ -1,0 +1,34 @@
+<div class="center alert alert-info"><h4>Please use this page to upload photos that are not associated with a particular data record. Photos associated with data should be uploaded on the Data Entry form, along with information on the nest plug/activity report</h4></div>  <br/>
+
+<%= form_for(@photo) do |f| %>
+  <% if @photo.errors.any? %>
+        <div id="error_explanation" xmlns="http://www.w3.org/1999/html">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+      <% @photo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class = "hero-unit">
+    <div class = "field">
+        <h3><small style="color:black">Optional: Please upload a photo to help us verify your nest plug observation. You may also upload photos of other subjects, please choose the appropriate subject from the dropdown menu.</small></h3>
+        <%= f.select :image_subject, [[''],['Nest plug'], ['Insect at my bee block'], ['Insect not at my bee block'], ['Whole Block'], ['Miscellaneous']] %><br />
+        <%= f.file_field :image %>
+    </div>
+    <br/>
+
+    <div class = "field">
+        <h3><small style="color:black">Please tell us about the photo that you’re submitting. Please upload photos of nest plugs along with the data entry form. If you have already submitted a photo of your nest plug along with a data record for that cavity, but wish to upload additional photos, you may do that here. Please make a note of that  in this comment field.</small></h3>
+        <%= f.text_area :comment%>
+    </div><br/>
+
+    <div class="field">
+      <%= f.submit "Submit Report", class:"center btn btn-large btn-primary" %>
+    </div>
+
+  </div>
+<% end %>

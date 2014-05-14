@@ -20,7 +20,9 @@
     <div class="hero-unit">
       <p>If this is your first time here, you will need to <strong><%= link_to "register your bee block.", new_block_path %></strong>
       </p>
-      <p>If you’ve previously registered your bee block, <strong><%= link_to "click here to enter data", '/reports/new', class:"" %></strong>
+      <p>If you’ve previously registered your bee block, <strong><%= link_to "click here to enter data.", '/reports/new', class:"" %></strong>
+      </p>
+      <p>If you want to upload a photo or observation, <strong><%= link_to "click here.", '/photos', class:"" %></strong>
       </p>
     </div>
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140514044443) do
+ActiveRecord::Schema.define(version: 20140514173858) do
 
   create_table "blocks", force: true do |t|
     t.string   "block_number"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20140514044443) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "block_id"
+  end
+
+  create_table "photos", force: true do |t|
+    t.datetime "created_at"
+    t.string   "image_subject"
+    t.string   "comment"
+    t.string   "image"
+    t.datetime "updated_at"
   end
 
   create_table "reports", force: true do |t|
