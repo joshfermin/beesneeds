@@ -186,3 +186,13 @@ aside {
   margin: 0 auto !important;
   float: none !important;
 }
+
+.navbar .nav > li > a {
+  float: none;
+  line-height: 19px;
+  padding: 9px 10px 11px;
+  text-decoration: none;
+  color:  #333333;
+}
+
+ul.nav a:hover { color: #999999 !important; }
