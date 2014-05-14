@@ -16,6 +16,7 @@ class ReportsController < ApplicationController
       @reports = @reports.order(sort_column + " " + sort_direction)
     else
       @reports = Report.all
+      @reports = @reports.order(sort_column + " " + sort_direction)
     end
 
     respond_to do |format|
