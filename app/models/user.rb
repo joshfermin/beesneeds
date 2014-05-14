@@ -2,6 +2,7 @@
 class User < ActiveRecord::Base
   has_many :blocks
   has_many :reports, through: :blocks
+  has_many :photos
 
   #validates :first_name, presence: true
   #validates :last_name, presence: true

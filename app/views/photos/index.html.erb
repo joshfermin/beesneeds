@@ -1,8 +1,9 @@
-<h1>Listing photos</h1>
+<h1>Gallery</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Test</th>
       <th></th>
       <th></th>
       <th></th>
@@ -12,6 +13,7 @@
   <tbody>
     <% @photos.each do |photo| %>
       <tr>
+        <td><%= image_tag(photo.image_url, :width => 100) if photo.image.present? %></td>
         <td><%= link_to 'Show', photo %></td>
         <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
         <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>

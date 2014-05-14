@@ -4,12 +4,14 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @photos = Photo.all
+    @user = current_user.id
+    @photos = Photo.where(['user_id = ?', @user])
   end
 
   # GET /photos/1
   # GET /photos/1.json
   def show
+
   end
 
   # GET /photos/new
@@ -24,7 +26,7 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @photo = Photo.new(photo_params)
+    @photo = current_user.photos.build(photo_params)
 
     respond_to do |format|
       if @photo.save
