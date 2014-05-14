@@ -7,7 +7,12 @@ class ReportsController < ApplicationController
   # * GET /reports.json
   def index
     if current_user.admin? == false
-      @reports = current_user.reports
+      @blocks = Block.where(:user_id => current_user.id)
+      @user_reports = Array.new
+      for block in @blocks
+         @user_reports << block.block_number
+      end
+      @reports = Report.where(:block_number => @user_reports)
     else
       @reports = Report.all
     end
@@ -35,13 +40,14 @@ class ReportsController < ApplicationController
     @report.block_id = session[:block_id]
     @report.date = session[:date]
     session[:report_params] ||= {}
+    Block.where(:user_id => current_user.id)
 
     session[:report_params].deep_merge!(params[:report]) if params[:report]
     @report = Report.new(session[:report_params])
     session[:date] = @report.date
     session[:block_id] = @report.block_id
     @report.current_step = session[:report_step]
-    
+
     if params[:back_button]
       @report.previous_step
     elsif @report.last_page?
@@ -49,7 +55,7 @@ class ReportsController < ApplicationController
     else
       @report.next_step
     end
-   
+
     session[:report_step] = @report.current_step
   end
 

@@ -8,7 +8,7 @@
 
     <div class="field">
     <%= f.label 'Which block is this report for?' %>
-    <%= f.collection_select :block_id, Block.where(:user_id => current_user.id), :id, :block_number, :prompt => false  %>
+    <%= f.collection_select :block_number, Block.where(:user_id => current_user.id), :block_number, :block_number, :prompt => false  %>
     </div>
 
     <div class="field">
