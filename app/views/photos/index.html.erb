@@ -1,27 +1,35 @@
-<h1>Gallery</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Test</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @photos.each do |photo| %>
+<% if current_user.admin? == true %>
+    <h1>Admin - All Photos</h1>
+    <table class="center table table-striped table-hover">
+      <thead>
       <tr>
-        <td><%= image_tag(photo.image_url, :width => 100) if photo.image.present? %></td>
-        <td><%= link_to 'Show', photo %></td>
-        <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Image</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
 
-<br>
+      <tbody>
+      <% @photos.each do |photo| %>
+          <tr>
+            <td><%= image_tag(photo.image_url, :width => 100) if photo.image.present? %></td>
+            <td><%= link_to 'Show', photo %></td>
+            <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+            <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
 
-<%= link_to 'New Photo', new_photo_path %>
+    <br>
+<% else %>
+    <h1>Gallery</h1>
+
+
+<% end %>
+
+
+
+
+<%= link_to 'New Photo', new_photo_path, class:"btn btn-large btn-primary" %>
