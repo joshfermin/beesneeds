@@ -1,7 +1,0 @@
-BeesNeeds web interface.
-
-Written for University of Colorado Boulder 2013 by Josh Fermin, Ludvig Rhodin and Matthew Moskowitz.
-
-joshua.fermin@colorado.edu
-ludvig.rhodin@colorado.edu
-matthew.moskowitz@colorado.edu
