@@ -1,5 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Gallery', photos_path%> |
-<%= link_to 'Back', photos_path %>
+
+<p>
+  <strong>Photo:</strong>
+  <%= image_tag(@photo.image, :width => 100) %>
+</p>
+
+
+<p>
+  <strong>Subject:</strong>
+  <%= @photo.image_subject %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @photo.comment %>
+</p>
+
+
+<div class="center btn-group btn-group-xs">
+<%= link_to 'Gallery', photos_path, class:"btn btn-large btn-primary"%>
+<%= link_to 'Edit', edit_photo_path(@photo), class:"btn btn-large btn-primary" %>
+<%= link_to 'Back', photos_path, class:"btn btn-large btn-primary" %>
+</div>
