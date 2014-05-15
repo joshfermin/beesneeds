@@ -1,9 +1,14 @@
 <% if current_user.admin? == true %>
     <h1>Admin - All Photos</h1>
+<% else %>
+    <h1>Your Photos</h1>
+<% end %>
+
     <table class="center table table-striped table-hover">
       <thead>
       <tr>
         <th>Image</th>
+        <th>Comment</th>
         <th></th>
         <th></th>
         <th></th>
@@ -14,6 +19,7 @@
       <% @photos.each do |photo| %>
           <tr>
             <td><%= image_tag(photo.image_url, :width => 100) if photo.image.present? %></td>
+            <td><%= photo.comment %></td>
             <td><%= link_to 'Show', photo %></td>
             <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
             <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -21,14 +27,7 @@
       <% end %>
       </tbody>
     </table>
-
     <br>
-<% else %>
-    <h1>Gallery</h1>
-
-
-<% end %>
-
 
 
 

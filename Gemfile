@@ -58,7 +58,7 @@ group :production do
 	gem 'rails_12factor'
 end
 
-gem 'blueimp-gallery'
+gem 'bootstrap-addons-rails'
 gem 'carrierwave'
 gem 'devise'
 gem 'cucumber-rails', :group => :test, :require => false
