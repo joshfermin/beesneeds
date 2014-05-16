@@ -1,0 +1,34 @@
+<table class="reportTable", id="reportsTbl">
+  <thead>
+    <tr>
+      <th>Activity</th>
+      <th>Block</th>
+      <th>Date</th>
+      <th>Image</th>
+      <th>Plug state</th>
+      <th>Plug type</th>
+      <th>Plug Row</th>
+      <th>Plug Col</th>
+      <th>Comment</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= report.activity %></td>
+        <td><%= report.block_number %></td>
+        <td><%= report.date %></td>
+        <td><%= report.image %></td>
+        <td><%= report.plug_state %></td>
+        <td><%= report.plug_type %></td>
+        <td><%= report.pluga %></td>
+        <td><%= report.plugn %></td>
+        <td><%= report.comment %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

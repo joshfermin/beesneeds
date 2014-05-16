@@ -1,0 +1,42 @@
+<%= form_for(@photo) do |f| %>
+  <% if @photo.errors.any? %>
+        <div id="error_explanation" xmlns="http://www.w3.org/1999/html">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+      <% @photo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class = "hero-unit">
+    <div class = "field">
+        <%= f.label "Edit subject:" %>
+        <%= f.select :image_subject, [[''],['Nest plug'], ['Insect at my bee block'], ['Insect not at my bee block'], ['Whole Block'], ['Miscellaneous']] %><br />
+    </div>
+    <div class = "field">
+      <%= f.label "Change your photo (Leave blank if you don't want to change):" %>
+      <%= f.file_field :image %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Edit observation date:' %>
+      <%= f.date_select :date, :class => "datepicker" %>
+    </div><br/>
+
+    <div class = "field">
+        <%= f.label 'Edit Comment:' %>
+        <%= f.text_area :comment %>
+    </div><br/>
+
+
+
+
+    <div class="field">
+      <%= f.submit "Update Photo", class:"center btn btn-large btn-primary" %>
+    </div>
+
+  </div>
+<% end %>

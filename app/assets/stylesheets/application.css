@@ -9,5 +9,15 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap
  *= require_tree .
  */
+
+
+body { padding-top: 80px; }
+@media screen and (max-width: 768px) {
+    body { padding-top: 0px; }
+}
+
+
+

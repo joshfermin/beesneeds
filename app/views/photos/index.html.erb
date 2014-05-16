@@ -1,0 +1,36 @@
+<% if current_user.admin? == true %>
+    <h1>Admin - All Photos</h1>
+<% else %>
+    <h1>Your Photos</h1>
+<% end %>
+
+    <table class="center table table-striped table-hover">
+      <thead>
+      <tr>
+        <th>Image</th>
+        <th>Subject</th>
+        <th>Comment</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @photos.each do |photo| %>
+          <tr>
+            <td><%= image_tag(photo.image_url, :width => 100) if photo.image.present? %></td>
+            <td><%= photo.image_subject %>td>
+            <td><%= photo.comment %></td>
+            <td><%= link_to 'Show', photo %></td>
+            <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+            <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <br>
+
+
+
+<%= link_to 'New Photo', new_photo_path, class:"btn btn-large btn-primary" %>

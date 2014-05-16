@@ -1,0 +1,28 @@
+
+<% if current_user.admin? == true %>
+    <%= image_tag("beesneeds.png", size: "200",  :align => "left") %><br/><h1>Data Entry and Photo Upload Site</h1> <h2> You are logged in as: Admin </h2><br><br>
+    <div class="center hero-unit">
+        <% if current_user.first_name == "Administrator" %>
+          <div class="alert alert-danger"><p> You have not updated your credentials, please  <strong><%= link_to "click here.", edit_user_registration_path %></strong> </p></div>
+            <p>Be sure to change everything to ensure full security and gain access to the rest of the website.</p>
+        <% else %>
+            <p>As the admin, you are granted access to all of the reports from all the volunteers signed up. You are also granted access to view all the bee blocks registered.</p>
+            <%= link_to "View Data Reports", "/reports", class:"btn btn-med btn-primary" %>
+            <%= link_to "View Bee Blocks", "/blocks", class:"btn btn-med btn-primary" %>
+        <%end %>
+    </div>
+
+
+
+<% else %>
+
+  <%= image_tag("beesneeds.png", size: "200",  :align => "left") %><br/><h1>Data Entry and Photo Upload Site</h1><br><br><br><br>
+    <div class="hero-unit">
+      <p>If this is your first time here, you will need to <strong><%= link_to "register your bee block.", new_block_path %></strong>
+      </p>
+      <p>If you’ve previously registered your bee block, <strong><%= link_to "click here to enter data.", '/reports/new', class:"" %></strong>
+      </p>
+      <p>If you want to upload a photo or observation, <strong><%= link_to "click here.", '/photos', class:"" %></strong>
+      </p>
+    </div>
+<% end %>

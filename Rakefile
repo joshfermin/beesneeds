@@ -3,4 +3,10 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-RailsBeesneeds::Application.load_tasks
+Beesneeds::Application.load_tasks
+
+require 'reek/rake/task'
+
+Reek::Rake::Task.new do |t|
+  t.fail_on_error = false
+end

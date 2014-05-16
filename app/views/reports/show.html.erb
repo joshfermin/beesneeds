@@ -1,0 +1,49 @@
+<p class="show" id="notice"><%= notice %></p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @report.activity %>
+</p>
+
+<p>
+  <strong>Block:</strong>
+  <%= @report.block_number %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @report.date %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(@report.image_url, :width => 600) if @report.image.present? %>
+</p>
+
+<p>
+  <strong>Plug state:</strong>
+  <%= @report.plug_state %>
+</p>
+
+<p>
+  <strong>Plug type:</strong>
+  <%= @report.plug_type %>
+</p>
+
+<p>
+  <strong>Plug Letter:</strong>
+  <%= @report.pluga %>
+</p>
+
+<p>
+  <strong>Plug Number:</strong>
+  <%= @report.plugn %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @report.comment %>
+</p>
+
+<%= link_to 'Edit', edit_report_path(@report) %> |
+<%= link_to 'Reports', reports_path %>

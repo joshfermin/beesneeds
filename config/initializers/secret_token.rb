@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-RailsBeesneeds::Application.config.secret_key_base = '4694a55cbd9bc4dc753f0e58a1779bd64b57c011e1c8b870726fbd785d34d413711544e6aed2b8f56d3df8e757c0414bcd639b132c26eefb7158c488863f6cba'
+Beesneeds::Application.config.secret_key_base = '523fec19405cb1097465e24b78f2d9133a8bdf2d028f375a1284b61fb1e78868b22037a50cf39135efa22eed21fa4b428fa3d8f6379da99e539b128f0a55ab4b'

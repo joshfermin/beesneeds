@@ -1,0 +1,44 @@
+<div class="center alert alert-info"><h4>Please use this page to upload photos that are not associated with a particular data record. Photos associated with data should be uploaded on the Data Entry form, along with information on the nest plug/activity report</h4></div>  <br/>
+
+<%= form_for(@photo) do |f| %>
+  <% if @photo.errors.any? %>
+        <div id="error_explanation" xmlns="http://www.w3.org/1999/html">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+      <% @photo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class = "hero-unit">
+    <div class = "field">
+        <%= f.label "Subject of the photo you are uploading:" %>
+        <%= f.select :image_subject, [[''],['Nest plug'], ['Insect at my bee block'], ['Insect not at my bee block'], ['Whole Block'], ['Miscellaneous']] %><br />
+    </div>
+    <div class = "field">
+      <%= f.label "Select your photo:" %>
+      <%= f.file_field :image %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'When did you make this observation?' %>
+      <%= f.date_select :date, :class => "datepicker" %>
+    </div><br/>
+
+    <div class = "field">
+        <h3><small style="color:black">Please tell us about the photo that you’re submitting. If you have already submitted a photo of your nest plug along with a data record for that cavity, but wish to upload additional photos, you may do that here. Please make a note of that  in this comment field.</small></h3>
+        <%= f.text_area :comment%>
+    </div><br/>
+
+
+
+
+    <div class="field">
+      <%= f.submit "Upload Photo", class:"center btn btn-large btn-primary" %>
+    </div>
+
+  </div>
+<% end %>

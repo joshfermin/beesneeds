@@ -1,0 +1,21 @@
+  <div id='row' class="field" >
+    <%= f.label 'Select plug row (This is the letter to the left of the plug).' %><br>
+    <%= f.select :pluga, [['a', 'a'], ['b', 'b'], ['c', 'c'], ['d', 'd'], ['e', 'e'], ['f', 'f'], ['g', 'g'], ['h', 'h'], 
+    					['i', 'i'], ['j', 'j']] %>
+  </div>
+
+  <div id='column' class="field">
+  <%= f.label 'Select plug column (This is the number that is above the plug).' %><br>
+  <%= f.select :plugn, [['1', '1'], ['2', '2'], ['3', '3'], ['4', '4']] %>
+  </div>
+
+  <div style="float:left;" id='column' class="type">
+  <%= f.label 'Indicate state of plug.' %><br>
+  <%= f.select :plug_state, [['Fully Intact'], ['Partially Intact']] %>
+  </div>
+
+  <div style="float:relative;" id='column' class="type">
+  <%= f.label 'Select type of plug.' %><br>
+  <%= f.select :plug_type, [['Grass'], ['Mud'], ['Resin'], ['Silk']] %>
+  </div>
+
