@@ -29,16 +29,16 @@ development:
   encoding: utf8
   database: rails_beesneeds_development
   pool: 5
-  username: jofe7557
-  password: beesneeds
+  username: beesneeds
+  password: Ieku2un1
 
 test: &test
   adapter: postgresql
   encoding: utf8
   database: rails_beesneeds_test
   pool: 5
-  username: jofe7557
-  password: beesneeds
+  username: beesneeds
+  password: Ieku2un1
 
 production:
   adapter: postgresql
@@ -46,8 +46,8 @@ production:
   database: rails_beesneeds_production
   pool: 5
   timeout: 5000
-  username: jofe7557
-  password: beesneeds
+  username: beesneeds
+  password: Ieku2un1
 
 
 cucumber:
