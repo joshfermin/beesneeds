@@ -29,13 +29,10 @@ ActiveRecord::Schema.define(version: 20140516184913) do
     t.datetime "updated_at"
     t.date     "date"
     t.integer  "user_id"
-<<<<<<< HEAD
     t.string   "block_number"
-=======
->>>>>>> 524bc7136c801e66370ea4f797e0a385cd9b7b5f
   end
 
-  add_index "photos", ["user_id", "created_at"], name: "index_photos_on_user_id_and_created_at"
+  add_index "photos", ["user_id", "created_at"], name: "index_photos_on_user_id_and_created_at", using: :btree
 
   create_table "reports", force: true do |t|
     t.string   "activity"
@@ -53,8 +50,6 @@ ActiveRecord::Schema.define(version: 20140516184913) do
     t.string   "plug_placement"
     t.string   "image_subject"
   end
-
-  add_index "reports", ["block_number"], name: "index_reports_on_block_number"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
@@ -74,7 +69,7 @@ ActiveRecord::Schema.define(version: 20140516184913) do
     t.string   "last_name"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
