@@ -52,3 +52,5 @@ production:
 
 cucumber:
   <<: *test
+
+schema_search_path: store, public
