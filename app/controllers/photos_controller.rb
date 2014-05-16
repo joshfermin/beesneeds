@@ -31,7 +31,7 @@ class PhotosController < ApplicationController
   # POST /photos.json
   def create
     @photo = current_user.photos.build(photo_params)
-
+    @photo.block_number =
     respond_to do |format|
       if @photo.save
         format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
@@ -75,6 +75,6 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:comment, :date, :image_subject, :image)
+      params.require(:photo).permit(:comment, :date, :image_subject, :image, :block_number)
     end
 end
