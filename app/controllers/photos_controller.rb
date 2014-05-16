@@ -10,7 +10,6 @@ class PhotosController < ApplicationController
     else
       @photos = Photo.all
     end
-
   end
 
   # GET /photos/1

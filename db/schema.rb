@@ -29,7 +29,10 @@ ActiveRecord::Schema.define(version: 20140516184913) do
     t.datetime "updated_at"
     t.date     "date"
     t.integer  "user_id"
+<<<<<<< HEAD
     t.string   "block_number"
+=======
+>>>>>>> 524bc7136c801e66370ea4f797e0a385cd9b7b5f
   end
 
   add_index "photos", ["user_id", "created_at"], name: "index_photos_on_user_id_and_created_at"
