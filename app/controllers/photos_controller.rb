@@ -4,8 +4,13 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @user = current_user.id
-    @photos = Photo.where(['user_id = ?', @user])
+    if current_user.admin? == false
+      @user = current_user.id
+      @photos = Photo.where(['user_id = ?', @user])
+    else
+      @photos = Photo.all
+    end
+
   end
 
   # GET /photos/1

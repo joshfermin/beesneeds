@@ -14,10 +14,16 @@
   <% end %>
 
   <div class = "hero-unit">
+    <div class="field">
+      <%= f.label 'Enter your block number:' %>
+      <%= f.collection_select :block_number, Block.where(:user_id => current_user.id), :block_number, :block_number, :prompt => false  %>
+    </div>
+
     <div class = "field">
         <%= f.label "Subject of the photo you are uploading:" %>
         <%= f.select :image_subject, [[''],['Nest plug'], ['Insect at my bee block'], ['Insect not at my bee block'], ['Whole Block'], ['Miscellaneous']] %><br />
     </div>
+
     <div class = "field">
       <%= f.label "Select your photo:" %>
       <%= f.file_field :image %>

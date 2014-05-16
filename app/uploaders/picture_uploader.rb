@@ -45,7 +45,11 @@ class PictureUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
    def filename
-    model.block_number.to_s+'_'+model.plugn.to_s+'_'+model.date.to_s+File.extname(original_filename).to_s if original_filename
+    if model.plugn.to_s.empty?
+      model.block_number.to_s+'_'+model.date.to_s+File.extname(original_filename).to_s if original_filename
+    else
+      model.block_number.to_s+'_'+model.plugn.to_s+'_'+model.date.to_s+File.extname(original_filename).to_s if original_filename
+    end
    end
 
 end

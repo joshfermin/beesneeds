@@ -42,7 +42,7 @@ class MiscPhotoUploader < PictureUploader
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    original_filename
+    model.block_number.to_s+'_'+model.date.to_s+'_misc'+File.extname(original_filename).to_s if original_filenameoriginal_filename
   end
 
 end
