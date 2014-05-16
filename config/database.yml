@@ -27,7 +27,7 @@
 development:
   adapter: postgresql
   encoding: utf8
-  database: rails_beesneed_development
+  database: rails_beesneeds_development
   pool: 5
   username: beesneeds
   password: jofe7557
@@ -35,7 +35,7 @@ development:
 test: &test
   adapter: postgresql
   encoding: utf8
-  database: project_test
+  database: rails_beesneeds_test
   pool: 5
   username: beesneeds
   password: jofe7557
@@ -43,7 +43,7 @@ test: &test
 production:
   adapter: postgresql
   encoding: utf8
-  database: project_production
+  database: rails_beesneeds_production
   pool: 5
   timeout: 5000
   username: beesneeds
