@@ -4,6 +4,7 @@ class Report < ActiveRecord::Base
   mount_uploader :image, PictureUploader
   validates :date, :presence => true
   validates :activity, :presence => true
+  validates_presence_of :image, :presence => true, :if => :image_subject?
 
  attr_writer :current_step
 

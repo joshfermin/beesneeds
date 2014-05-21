@@ -1,8 +1,16 @@
 <% if current_user.admin? == true %>
-    <h1>Admin - All Photos</h1>
+    <h1>Admin - Misc Photos</h1>
 <% else %>
-    <h1>Your Photos</h1>
+    <h1>Miscellaneous Photos</h1>
 <% end %>
+
+<% if @photos.count == 0 or @report_photos.count == 0 %>
+    <div class="center hero-unit">
+      <p>Add some photos! </p>
+      <%= link_to 'Report Data', new_report_path , class: "btn btn-large btn-default"%>
+      <%= link_to 'Upload Misc Image', new_photo_path, class: "btn btn-large btn-default"%>
+    </div>
+<% else %>
 
     <table class="center table table-striped table-hover">
       <thead>
@@ -24,13 +32,49 @@
             <td><%= photo.comment %></td>
             <td><%= link_to 'Show', photo %></td>
             <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-            <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
       <% end %>
       </tbody>
     </table>
     <br>
 
+<% if current_user.admin? == true %>
+    <h1>Admin - Report Photos</h1>
+<% else %>
+    <h1>Photos from Reports</h1>
+<% end %>
+<div class="center"> Note: To delete these photos, please go to your <a href='/reports'>reports page</a></div>
+<br/>
+<table class="center table table-striped table-hover">
+  <thead>
+  <tr>
+    <th>Image</th>
+    <th>Subject</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @report_photos.each do |photo| %>
+      <tr>
+        <td><%= image_tag(photo.image_url, :width => 100) if photo.image.present? %></td>
+        <td><%= photo.image_subject %><td>
+        <td><%= photo.comment %></td>
+        <td><%= link_to 'Show', photo %></td>
+        <td><%= link_to 'Edit', edit_report_path(photo) %></td>
+        <td></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+ <br/>
 
 
-<%= link_to 'New Photo', new_photo_path, class:"btn btn-large btn-primary" %>
+
+<div class="center"><%= link_to 'New Photo', new_photo_path, class:"btn btn-large btn-primary" %></div>
+<% end %>

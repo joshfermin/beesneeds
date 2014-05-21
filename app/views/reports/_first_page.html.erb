@@ -16,7 +16,7 @@
     <%= f.date_select :date, :class => "datepicker" %>
     </div>
 
-    <h3><small style="color:black">Leave row and column blank if you are reporting that you saw no new activity or if you have a miscellaneous observation that is not associated with a particular nest tunnel.</small></h3>
+    <h3><small style="color:rgba(0,0,0,0.90)">Leave row and column blank if you are reporting that you saw no new activity or if you have a miscellaneous observation that is not associated with a particular nest tunnel.</small></h3>
     <br/>
     <div class="field" >
     <%= f.label 'Select plug row letter:' %>
@@ -45,19 +45,19 @@
     </div>
 
     <div class="field">
-      <h3><small style="color:black">Please feel free to add a comment or description to help us learn more about what you've observed. If you’re reporting on something other than a nest plug please tell us about it here.</small></h3>
+      <h3><small style="color:rgba(0,0,0,0.90)">Please feel free to add a comment or description to help us learn more about what you've observed. If you’re reporting on something other than a nest plug please tell us about it here.</small></h3>
     <%= f.text_area :comment%>
     </div>
 
     <div>
-    <h3><small style="color:black">Optional: Please upload a photo to help us verify your nest plug observation. You may also upload photos of other subjects, please choose the appropriate subject from the dropdown menu.</small></h3>
-    <%= f.select :image_subject, [[''],['Nest plug'], ['Insect at my bee block'], ['Insect not at my bee block'], ['Whole Block'], ['Miscellaneous']] %><br />
+    <h3><small style="color:rgba(0,0,0,0.90)">Optional: Please upload a photo to help us verify your nest plug observation. You may also upload photos of other subjects, please choose the appropriate subject from the dropdown menu.</small></h3>
+    <%= f.select :image_subject, [[],['Nest plug'], ['Insect at my bee block'], ['Insect not at my bee block'], ['Whole Block'], ['Miscellaneous']] %><br />
     <%= f.file_field :image %>
     </div> <br/>
 
   <div class="center">
     <%= f.submit "Submit Report", class:"center btn btn-large btn-primary" %>
-    <h3><small style="color:black">Note: Only click the submit button once, if you're uploading a photo, it's going to take some time.</small></h3>
+    <h3><small style="color:rgba(0,0,0,0.90)">Note: Only click the submit button once, if you're uploading a photo, it's going to take some time.</small></h3>
   </div>
 </div>
 

@@ -53,7 +53,7 @@ class ReportsController < ApplicationController
     if params[:back_button]
       @report.previous_step
     elsif @report.last_page?
-      @report.save
+      #@report.save
     else
       @report.next_step
     end

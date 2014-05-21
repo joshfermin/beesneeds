@@ -4,11 +4,21 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
+    @report_photos = Array.new
     if current_user.admin? == false
       @user = current_user.id
       @photos = Photo.where(['user_id = ?', @user])
+
+      @blocks = Block.where(:user_id => current_user.id)
+      @user_reports = Array.new
+      for block in @blocks
+        @user_reports << block.block_number
+      end
+      @report_photos = Report.where(:block_number => @user_reports)
+      @report_photos = @report_photos.where("image_subject is NOT NULL and image_subject != ''")
     else
       @photos = Photo.all
+      @report_photos = Report.where("image_subject is NOT NULL and image_subject != ''")
     end
   end
 
