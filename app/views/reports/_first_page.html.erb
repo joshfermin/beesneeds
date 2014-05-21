@@ -3,7 +3,7 @@
     <div id="activity" class="field">
     <a href="#" onchange="('row').toggle(); return false;"></a>
     <%= f.label 'What activity would you like to report?' %>
-    <%= f.select :activity, [[''],['New plug', 'new'], ['Change in plug', 'change'], ['Something other than plug in tunnel', 'other'],  ['Miscellaneous observation', 'other'], ['There has been no new activity at my block', 'other']] %>
+    <%= f.select :activity, [[''],['New Plug (including spider webs)', 'new'], ['Change in plug', 'change'], ['Something other than plug in tunnel (e.g. earwig, lady bug, ants)', 'other'],  ['Miscellaneous observation: (i.e. woodpecker/ants at block, block fell down)', 'other'], ['There has been no new activity at my block', 'other']] %>
     </div>
 
     <div class="field">
@@ -17,7 +17,7 @@
     </div>
 
     <h3><small style="color:black">Leave row and column blank if you are reporting that you saw no new activity or if you have a miscellaneous observation that is not associated with a particular nest tunnel.</small></h3>
-
+    <br/>
     <div class="field" >
     <%= f.label 'Select plug row letter:' %>
     <%= f.select :pluga, [[], ['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E'], ['F', 'F'], ['G', 'G'], ['H', 'H'],
@@ -40,12 +40,12 @@
     </div>
 
     <div class="field">
-    <%= f.label "Has your plug's placement changed?" %>
+    <%= f.label "What is the depth of your nest plug?" %>
     <%= f.select :plug_placement, [[''],['Recessed more than 1/2 inch'], ['Recessed 1/4 to 1/2 inch'],  ['recessed less than 1/4 inch'],  ['Flush with the entrance'],  ['Protruding from the face of the block']] %>
     </div>
 
     <div class="field">
-    <%= f.label "Please feel free to add a comment or description to help us learn more about what you've observed." %>
+      <h3><small style="color:black">Please feel free to add a comment or description to help us learn more about what you've observed. If you’re reporting on something other than a nest plug please tell us about it here.</small></h3>
     <%= f.text_area :comment%>
     </div>
 
@@ -57,6 +57,7 @@
 
   <div class="center">
     <%= f.submit "Submit Report", class:"center btn btn-large btn-primary" %>
+    <h3><small style="color:black">Note: Only click the submit button once, if you're uploading a photo, it's going to take some time.</small></h3>
   </div>
 </div>
 
