@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20140516184913) do
     t.string   "block_number"
   end
 
-  add_index "photos", ["user_id", "created_at"], name: "index_photos_on_user_id_and_created_at", using: :btree
+  add_index "photos", ["user_id", "created_at"], name: "index_photos_on_user_id_and_created_at"
 
   create_table "reports", force: true do |t|
     t.string   "activity"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20140516184913) do
     t.string   "last_name"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
