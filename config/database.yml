@@ -18,11 +18,11 @@ test: &test
   pool: 5
   timeout: 5000
 
-production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
+# production:
+#   adapter: sqlite3
+#   database: db/production.sqlite3
+#   pool: 5
+#   timeout: 5000
 
 #development:
 #  adapter: postgresql
@@ -40,14 +40,14 @@ production:
 #  username: beesneeds
 #  password: Ieku2un1
 
-#production:
-#  adapter: postgresql
-#  encoding: utf8
-#  database: rails_beesneeds_production
-#  pool: 5
-#  timeout: 5000
-#  username: beesneeds
-#  password: Ieku2un1
+production:
+ adapter: postgresql
+ encoding: utf8
+ database: rails_beesneeds_production
+ pool: 5
+ timeout: 5000
+ username: beesneeds
+ password: Ieku2un1
 
 
 cucumber:
