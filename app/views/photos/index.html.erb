@@ -1,16 +1,17 @@
-<% if current_user.admin? == true %>
-    <h1>Admin - Misc Photos</h1>
-<% else %>
-    <h1>Miscellaneous Photos</h1>
-<% end %>
-
-<% if @photos.count == 0 %>
+<% if @photos.count == 0 and @report_photos.count == 0 %>
+    <h1>Gallery</h1>
     <div class="center hero-unit">
       <p>Add some photos!</p>
       <%= link_to 'Report Data', new_report_path , class: "btn btn-large btn-default"%>
       <%= link_to 'Upload Misc Image', new_photo_path, class: "btn btn-large btn-default"%>
     </div>
-<% else %>
+<% elsif @photos.count > 0 %>
+
+    <% if current_user.admin? == true %>
+        <h1>Admin - Misc Photos</h1>
+    <% else %>
+        <h1>Miscellaneous Photos</h1>
+    <% end %>
 
     <table class="center table table-striped table-hover">
       <thead>
@@ -58,7 +59,6 @@
         <th>Comment</th>
         <th></th>
         <th></th>
-        <th></th>
       </tr>
       </thead>
 
@@ -70,7 +70,6 @@
             <td><%= photo.comment %></td>
             <td><%= link_to 'Show', photo %></td>
             <td><%= link_to 'Edit', edit_report_path(photo) %></td>
-            <td></td>
           </tr>
       <% end %>
       </tbody>
