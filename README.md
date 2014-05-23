@@ -11,5 +11,5 @@
 
 Written for University of Colorado Boulder 2013 by Josh Fermin, Ludvig Rhodin and Matthew Moskowitz.
 
-Data entry platform for volunteers with bee blocks. 
+Data entry platform for volunteers with bee blocks. Currently deployed at http://beesneeds.colorado.edu/report_data
 
