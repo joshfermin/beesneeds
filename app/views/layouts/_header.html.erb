@@ -3,7 +3,7 @@
       <div class = "container">
          <ul class = "nav pull-left">
            <li><%= image_tag('bee.png', size:"40x55", id: "logo")%></li>
-           <li><h4><%= link_to "The Bees Needs", root_path, :style=>'color:#000000;' %></h4></li>
+           <li><h4><%= link_to "The Bees Needs", '/report_data', :style=>'color:#000000;' %></h4></li>
          </ul>
 
 
@@ -16,7 +16,7 @@
                     <strong><%= current_user.email %></strong> <b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><%= link_to 'Home', root_path%></li>
+                    <li><%= link_to 'Home', '/report_data'%></li>
                     <li><%= link_to 'About Us', '/pages/info'%></li>
                     <li role="presentation" class="divider"></li>
                     <li><%= link_to 'Edit profile', edit_user_registration_path%></li>
