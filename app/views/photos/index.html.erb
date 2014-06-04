@@ -18,7 +18,7 @@
       <tr>
         <th>Image</th>
         <th>Subject</th>
-        <th></th>
+        <th>Bee Block Number</th>
         <th>Comment</th>
         <th></th>
         <th></th>
@@ -30,7 +30,8 @@
       <% @photos.each do |photo| %>
           <tr>
             <td><%= image_tag(photo.image_url, :width => 100) if photo.image.present? %></td>
-            <td><%= photo.image_subject %><td>
+            <td><%= photo.image_subject %></td>
+            <td><%= photo.block_number %></td>
             <td><%= photo.comment %></td>
             <td><%= link_to 'Show', photo %></td>
             <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
