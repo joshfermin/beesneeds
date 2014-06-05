@@ -71,7 +71,7 @@ class ReportsController < ApplicationController
   # * POST /reports.json
   def create
     session[:report_params] = Hash.new()
-    session[:report_params].deep_merge!(params[:report]) if params[:report]
+    session[:report_params].deep_merge!(params[:report]) if params[:report].present?
 
     @report = Report.new(session[:report_params])
     session[:date] = @report.date

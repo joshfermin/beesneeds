@@ -6,11 +6,12 @@ class Report < ActiveRecord::Base
   validates :activity, :presence => true
   validates_presence_of :image, :presence => true, :if => :image_subject?
 
- attr_writer :current_step
+  attr_writer :current_step
 
  def current_step
   @current_step || steps.first
  end
+
 
  def self.to_csv(options = {})
   CSV.generate(options) do |csv|
