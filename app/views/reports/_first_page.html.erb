@@ -46,7 +46,8 @@
 
     <div class="field">
       <h3><small style="color:rgba(0,0,0,0.90)">Please feel free to add a comment or description to help us learn more about what you've observed. If you’re reporting on something other than a nest plug please tell us about it here.</small></h3>
-    <%= f.text_area :comment%>
+    <%= f.text_area :comment, :maxlength => 255, :id => "field", :onkeyup => "countChar(this)" %>
+    <div id="charNum"></div>
     </div>
 
     <div>
@@ -60,6 +61,23 @@
     <h3><small style="color:rgba(0,0,0,0.90)">Note: Only click the submit button once, if you're uploading a photo, it's going to take some time.</small></h3>
   </div>
 </div>
+
+
+
+
+  <script src="http://code.jquery.com/jquery-1.5.js"></script>
+  <script>
+      function countChar(val) {
+          var len = val.value.length;
+          if (len >= 500) {
+              val.value = val.value.substring(0, 255);
+          } else {
+              $('#charNum').text(255 - len).css('color', "#000099");
+          }
+      };
+  </script>
+
+
 
 
 
