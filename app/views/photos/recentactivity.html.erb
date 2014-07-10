@@ -1,0 +1,23 @@
+<h1>Recent Photo Uploads</h1>
+    <table class="center table table-striped table-hover">
+      <thead>
+      <tr>
+        <th>Image</th>
+        <th>Date</th>
+        <th>Bee Block Number</th>
+        <th>Comment</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @photos.each do |photo| %>
+          <tr>
+            <td><%= image_tag(photo.image_url, :width => 500) if photo.image.present? %></td>
+            <td><%= photo.date %></td>
+            <td><%= photo.block_number %></td>
+            <td><%= photo.comment %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <br>

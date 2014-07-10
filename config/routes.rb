@@ -1,6 +1,9 @@
 Beesneeds::Application.routes.draw do
-  resources :photos
-
+  resources :photos do
+    collection do
+      get :recentactivity
+    end
+  end
   get "pages/home"
   get "pages/stat"
   get "pages/info"

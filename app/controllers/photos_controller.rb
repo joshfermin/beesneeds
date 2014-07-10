@@ -22,6 +22,13 @@ class PhotosController < ApplicationController
     end
   end
 
+
+  def recentactivity
+    @report_photos = Report.where("image_subject is NOT NULL and image_subject != ''").order("date DESC").first(10)
+    @photos = Photo.select("").order("date DESC").first(10).joins(:report).where("image_subject is NOT NULL and image_subject != ''").order("date DESC").first(10)
+  end
+
+
   # GET /photos/1
   # GET /photos/1.json
   def show
