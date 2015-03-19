@@ -6,7 +6,6 @@
       <table class = "table table-striped table-hover">
         <thead>
         <tr>
-          <th>Block ID</th>
           <th>Block Number</th>
           <th>Edit Block</th>
           <th>Delete Block</th>
@@ -18,10 +17,7 @@
         <tbody>
         <% @blocks.each do |block| %>
             <tr>
-              <td><%= block.id %></td>
               <td><%= block.block_number %></td>
-
-
               <td><%= link_to 'Edit ', edit_block_path(block) %></td>
               <td><%= link_to 'Delete', block, method: :delete, data: { confirm: 'Do you wish to delete this block?' } %></td>
             </tr>

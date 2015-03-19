@@ -58,7 +58,7 @@ group :production do
 	gem 'rails_12factor'
 end
 
-gem 'therubyracer', require: "v8"
+gem 'therubyracer'
 gem 'bootstrap-addons-rails'
 gem 'carrierwave'
 gem 'devise'
