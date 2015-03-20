@@ -7,6 +7,15 @@ class BlocksController < ApplicationController
   def index
     if current_user.admin?
       @blocks = Block.all
+
+      @user_ids = Array.new
+      @users = Array.new
+
+      for block in @blocks
+        @user_ids << block.user_id
+      end
+
+      @users = User.where(:id => @user_ids)
     else
       @blocks = Block.where(:user_id => current_user.id)
     end
