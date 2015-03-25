@@ -3,7 +3,7 @@
     <div id="activity" class="field">
     <a href="#" onchange="('row').toggle(); return false;"></a>
     <%= f.label 'What activity would you like to report?' %>
-    <%= f.select :activity, [[''],['New Plug (including spider webs)', 'New'], ['Change in plug', 'Change'], ['Something other than plug in tunnel (e.g. earwig, ladybug, ants)', 'Other'],  ['Miscellaneous observation: (i.e. woodpecker/ants at block, block fell down)', 'Misc'], ['There has been no new activity at my block', 'No New']] %>
+    <%= f.select :activity, [[''],['New Plug (including spider webs)', 'New'], ['Change in plug', 'Change'], ['Something other than plug in tunnel (e.g. earwig, ladybug, ants)', 'Other'],  ['Misc. observation NOT associated with a particular tunnel (i.e. woodpecker/ants at my block, block fell down, etc.)', 'Misc'],[ 'Misc. observation associated with a particular tunnel please enter tunnel letter and number below (i.e. bee in A3, ants in and out of tunnel b2)', 'Misc'], ['There has been no new activity at my block', 'No New']] %>
     </div>
 
     <div class="field">
