@@ -19,6 +19,12 @@ class BlocksController < ApplicationController
     else
       @blocks = Block.where(:user_id => current_user.id)
     end
+    
+    respond_to do |format|
+      format.html
+      format.csv { send_data @blocks.to_csv }
+      format.xls { send_data @blocks.to_csv(col_sep: "\t") }
+    end
 
   end
 

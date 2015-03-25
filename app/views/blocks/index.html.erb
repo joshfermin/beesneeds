@@ -33,12 +33,16 @@
 
       <br>
       <div class="btn-group btn-group-justified">
-        <div class="btn-group">
-          <%= button_to 'Register a Bee Block', new_block_path, method: :get, class: "btn btn-large btn-primary" %>
-        </div>
-        <div class="btn-group">
-          <%= button_to 'Report Activity', reports_path, class: "btn btn-large btn-primary" %>
-        </div>
+        
+          <%= link_to 'Register a Bee Block', new_block_path, method: :get, class: "btn btn-large btn-primary" %>
+        
+          <%= link_to 'Report Activity', reports_path, class: "btn btn-large btn-primary" %>
+        
+        
+          <%= link_to 'Export as CSV', blocks_path(format: "csv") , class: "btn btn-large btn-primary"%>
+        
+          <%= link_to 'Export to Excel', blocks_path(format: "xls") , class: "btn btn-large btn-primary"%>
+        
       </div>
 
 
