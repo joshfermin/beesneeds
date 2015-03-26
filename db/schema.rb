@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20140516184913) do
     t.string   "image_subject"
   end
 
+  add_index "reports", ["block_number"], name: "index_reports_on_block_number"
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
