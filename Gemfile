@@ -50,7 +50,7 @@ gem 'rdoc'
 
 group :development, :test do
 	gem 'sqlite3'
-  gem 'better_errors'
+  gem 'better_errors', '1.1.0'
   gem 'binding_of_caller'
 end
 group :production do
