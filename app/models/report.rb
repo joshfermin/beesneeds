@@ -2,6 +2,7 @@
 class Report < ActiveRecord::Base
   belongs_to :block
   mount_uploader :image, PictureUploader
+  validates_presence_of :block_number
   validates :date, :presence => true
   validates :activity, :presence => true
   validates_presence_of :image, :presence => true, :if => :image_subject?

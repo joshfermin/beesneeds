@@ -8,7 +8,7 @@
 
     <div class="field">
     <%= f.label 'Which block is this report for?' %>
-    <%= f.collection_select :block_number, Block.where(:user_id => current_user.id), :block_number, :block_number, :prompt => false  %>
+    <%= f.collection_select :block_number, Block.where(:user_id => current_user.id), :block_number, :block_number, :prompt => false, :include_blank => true %>
     </div>
 
     <div class="field">
@@ -26,7 +26,7 @@
 
     <div class="field">
     <%= f.label 'Select plug column number:' %>
-    <%= f.select :plugn, [['', ''], ['1', '1'], ['2', '2'], ['3', '3'], ['4', '4']] %>
+    <%= f.select :plugn, [['', ''], ['1', '1'], ['2', '2'], ['3', '3']]%>
     </div>
 
     <div class="field">
