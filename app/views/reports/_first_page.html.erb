@@ -60,6 +60,8 @@
     <%= f.submit "Submit Report", class:"center btn btn-large btn-primary" %>
     <h3><small style="color:rgba(0,0,0,0.90)">Note: Only click the submit button once, if you're uploading a photo, it's going to take some time.</small></h3>
   </div>
+
+  <%= f.hidden_field :block_id, :value => @report.block_id %>
 </div>
 
 

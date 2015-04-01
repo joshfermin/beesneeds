@@ -39,13 +39,13 @@ class ReportsController < ApplicationController
       redirect_to blocks_url, notice: 'Please register a block first.'
     end
     @report = Report.new
-    @report.block_id = session[:block_id]
     @report.date = session[:date]
     session[:report_params] ||= {}
     Block.where(:user_id => current_user.id)
 
     session[:report_params].deep_merge!(params[:report]) if params[:report]
     @report = Report.new(session[:report_params])
+     @report.block_id = Block.find_by(:id => current_user.id).id
     session[:date] = @report.date
     session[:block_id] = @report.block_id
     @report.current_step = session[:report_step]
