@@ -3,5 +3,10 @@
   <%= @block.block_number %>
 </p>
 
+<p>
+  <strong>Block nickname:</strong>
+  <%= @block.nickname %>
+</p>
+
 <%= link_to 'Edit', edit_block_path(@block) %> |
 <%= link_to 'Next', blocks_path %>

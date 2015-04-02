@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140516184913) do
+ActiveRecord::Schema.define(version: 20150402163112) do
 
   create_table "blocks", force: true do |t|
     t.string   "block_number"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140516184913) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "block_id"
+    t.string   "nickname"
   end
 
   create_table "photos", force: true do |t|
@@ -50,6 +51,8 @@ ActiveRecord::Schema.define(version: 20140516184913) do
     t.string   "plug_placement"
     t.string   "image_subject"
   end
+
+  add_index "reports", ["block_number"], name: "index_reports_on_block_number"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

@@ -4,6 +4,7 @@ class Block < ActiveRecord::Base
 	belongs_to :user
 	validates_uniqueness_of :block_number
 	has_one :info
+	validates :nickname, :presence => true
 
 	def self.to_csv(options = {})
 		CSV.generate(options) do |csv|

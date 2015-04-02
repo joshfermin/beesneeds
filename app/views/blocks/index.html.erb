@@ -1,8 +1,6 @@
 
 <% if current_user.admin? %>
-
     <h1>Admin Bee Blocks List - (<%=(@blocks.count)%>) </h1>
-
       <table class = "table table-striped table-hover">
         <thead>
         <tr>
@@ -10,13 +8,12 @@
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
+          <th>Block Nickname</th>
           <th>Edit Block</th>
           <th>Delete Block</th>
         </tr>
         </thead>
-
-
-
+        
         <tbody>
         <% @blocks.each do |block| %>
             <tr>
@@ -24,6 +21,7 @@
               <td><%= block.user.first_name %></td>
               <td><%= block.user.last_name %></td>
               <td><%= block.user.email %></td>
+              <td><%= block.nickname %></td>
               <td><%= link_to 'Edit ', edit_block_path(block) %></td>
               <td><%= link_to 'Delete', block, method: :delete, data: { confirm: 'Do you wish to delete this block?' } %></td>
             </tr>
@@ -58,6 +56,7 @@
   <thead>
     <tr>
       <th>Block Number</th>
+      <th>Block Nickname</th>
       <th>Edit Block</th>
       <th>Delete Block</th>
     </tr>
@@ -69,7 +68,7 @@
     <% @blocks.each do |block| %>
       <tr>
         <td><%= block.block_number %></td>
-
+        <td><%= block.nickname %></td>
         
         <td><%= link_to 'Edit ', edit_block_path(block) %></td>
         <td><%= link_to 'Delete', block, method: :delete, data: { confirm: 'Do you wish to delete this block?' } %></td>
