@@ -41,6 +41,7 @@
       </tbody>
     </table>
     <br>
+    <div class="center"><%= will_paginate @photos, :param_name => 'photo_page' %></div>
 <% end %>
 
 <% if @report_photos.count == 0 %>
@@ -83,7 +84,8 @@
 
 
 <% end %>
+<div class="center"><%= will_paginate @report_photos, :param_name => 'report_photo_page'%></div>
 
 <% if @photos.count > 0 or @report_photos.count > 0 %>
-<div class="center"><%= link_to 'New Photo', new_photo_path, class:"btn btn-large btn-primary" %></div>
+<div><%= link_to 'New Photo', new_photo_path, class:"btn btn-large btn-primary" %></div>
 <% end %>

@@ -7,18 +7,18 @@ class PhotosController < ApplicationController
     @report_photos = Array.new
     if current_user.admin? == false
       @user = current_user.id
-      @photos = Photo.where(['user_id = ?', @user])
-
+      @photos = Photo.where(['user_id = ?', @user]).paginate(:page => params[:photo_page], :per_page => 5)
       @blocks = Block.where(:user_id => current_user.id)
       @user_reports = Array.new
       for block in @blocks
         @user_reports << block.block_number
       end
       @report_photos = Report.where(:block_number => @user_reports)
-      @report_photos = @report_photos.where("image_subject is NOT NULL and image_subject != ''")
+      @report_photos = @report_photos.where("image_subject is NOT NULL and image_subject != ''").paginate(:page => params[:report_photo_page], :per_page => 5)
     else
       @photos = Photo.all
-      @report_photos = Report.where("image_subject is NOT NULL and image_subject != ''")
+      @photos = Photo.paginate(:page => params[:photo_page], :per_page => 5)
+      @report_photos = Report.where("image_subject is NOT NULL and image_subject != ''").paginate(:page => params[:report_photo_page], :per_page => 5)
     end
   end
 
