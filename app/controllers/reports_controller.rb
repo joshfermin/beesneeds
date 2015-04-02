@@ -13,9 +13,11 @@ class ReportsController < ApplicationController
          @user_reports << block.block_number
       end
       @reports = Report.where(:block_number => @user_reports)
+      @reports = Report.paginate(:page => params[:page], :per_page => 10)
       @reports = @reports.order(sort_column + " " + sort_direction)
     else
       @reports = Report.all
+      @reports = Report.paginate(:page => params[:page], :per_page => 10)
       @reports = @reports.order(sort_column + " " + sort_direction)
     end
 

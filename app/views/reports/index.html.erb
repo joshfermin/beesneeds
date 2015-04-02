@@ -1,3 +1,4 @@
+
 <% if current_user.admin? == true %>
     <h1>Admin Reports List - (<%=(@reports.count)%>) </h1>
 
@@ -125,4 +126,4 @@
   </div>
   <%end%>
 <% end %>
-
+<div class="center"><%= will_paginate @reports %></div>
