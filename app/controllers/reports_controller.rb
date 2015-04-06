@@ -45,7 +45,8 @@ class ReportsController < ApplicationController
 
       session[:report_params].deep_merge!(params[:report]) if params[:report]
       @report = Report.new(session[:report_params])
-      @report.block_id = Block.find_by(:id => current_user.id).id
+      @report.block_id = Block.find_by(:user_id => current_user.id).id
+      test
       session[:date] = @report.date
       session[:block_id] = @report.block_id
       @report.current_step = session[:report_step]
