@@ -27,10 +27,6 @@
       <th>Plug Row</th>
       <th>Plug Col</th>
       <th>Plug Placement</th>
-      <th>Comments</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
       <th></th>
       <th></th>
       <th></th>
@@ -50,9 +46,7 @@
         <td><%= report.plugn %></td>
         <td><%= report.plug_placement %></td>
         <td><%= report.comment %></td>
-        <td><%= report.block.user.first_name %></td>
-        <td><%= report.block.user.last_name %></td>
-        <td><%= report.block.user.email %></td>
+        
         <td><%= link_to 'Show Report', report %></td>
         <td><%= link_to 'Edit Report', edit_report_path(report), confirm: "Wait! Are you sure you want to edit this report? If you need to report that a plug has changed, please create a new record. If you need to correct a mistake that you have made, then please click OK." %></td>
         <td><%= link_to 'Delete Report', report, method: :delete, confirm: 'Whoa Nelly! Are you sure you want to delete this report? This action cannot be undone. If a nest plug has changed in some way, please create a new report—we want to keep track of the original state of your plug. If you’re sure you want to delete this report forever, click OK'  %></td>
