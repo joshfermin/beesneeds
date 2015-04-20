@@ -17,12 +17,13 @@ class ReportsController < ApplicationController
     else
       @reports = Report.all.paginate(:page => params[:page], :per_page => 10)
       @reports = @reports.order(sort_column + " " + sort_direction)
+      @reportsAll = Report.all
     end
 
     respond_to do |format|
       format.html
-      format.csv { send_data @reports.to_csv }
-      format.xls { send_data @reports.to_csv(col_sep: "\t") }
+      format.csv { send_data @reportsAll.to_csv }
+      format.xls { send_data @reportsAll.to_csv(col_sep: "\t") }
     end
   end
 
