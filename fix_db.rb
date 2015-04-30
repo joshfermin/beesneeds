@@ -11,18 +11,28 @@ ActiveRecord::Base.establish_connection(
 	:password => 	'Ieku2un1'
 )
 
-startDate = Date.parse('April 1 2015')
+startDate = Date.parse('April 1 2015').end_of_day
 endDate = Date.parse('April 7 2015').end_of_day
 
-reports = Report.where(:created_at => startDate..endDate);
+reports = Report.all
+
 # reports = Report.all
 # blocks = Block.all
-
+#puts reports.inspect
 for report in reports
-	block = Block.find_by(:block_number => report.block_number)
-	report.update(:block_id => block.id)
+	puts "\nOLD REPORT"
+	if report.image.present?
 	puts report.inspect
+	report.image.image_url
+	end
+#	puts "\nNEW REPORT"
+#	block = Block.where(block_number: report.block_number).first
+#	report.update_attributes(:block_id => block.id)
+#	puts block.inspect
+#	puts report.inspect
 end
+
+puts "Fix DB FINISHED!"
 
 
 #<Report id: 68, activity: "Other", block_id: 4, comment: "", date: "2015-04-20", image: nil, plug_state: "", plug_type: "", pluga: "", plugn: nil, created_at: "2015-04-20 04:54:51", updated_at: "2015-04-20 04:54:51", block_number: "112344", plug_placement: "", image_subject: "">
