@@ -13,10 +13,14 @@
     </div>
   <% end %>
 
+
+
+
+
   <div class = "hero-unit">
     <div class="field">   
-      <%= f.label 'Enter your block number:' %>    
-      <%= f.collection_select :block_number, Block.where(:user_id => current_user.id), :block_number, :block_number, :prompt => false  %>    
+      <%= f.label 'Which block is this report for?' %>
+      <%= f.collection_select :block_number, Block.where(:user_id => current_user.id), :block_number, :nickname, :prompt => false, :include_blank => true %>
     </div>
     <div class = "field">
         <%= f.label "Subject of the photo you are uploading:" %>
