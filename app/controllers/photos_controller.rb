@@ -22,6 +22,14 @@ class PhotosController < ApplicationController
     end
   end
 
+  def adminmiscphotos
+    @photos = Photo.all
+    @photos = Photo.paginate(:page => params[:photo_page], :per_page => 5)
+  end
+
+  def adminreportphotos
+    @report_photos = Report.where("image_subject is NOT NULL and image_subject != ''").paginate(:page => params[:report_photo_page], :per_page => 5)
+  end
 
   def recentactivity
     @photos = Photo.all(:order => "date DESC", :limit => 5)

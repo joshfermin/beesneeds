@@ -3,6 +3,7 @@ class Block < ActiveRecord::Base
 	has_many :reports
 	belongs_to :user
 	validates_uniqueness_of :block_number
+	validates_uniqueness_of :nickname
 	has_one :info
 	validates :nickname, :presence => true
 	validates_format_of :block_number, with: /((\A153...\z)|(\A555555\z))/, :message => "invalid--please try again and note that you may not register blocks from previous seasons of The Bees' Needs. If you're trying to report an observation on a bee block from 2013 or 2014, please use the Submit Photo option." 

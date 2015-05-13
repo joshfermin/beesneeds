@@ -6,79 +6,71 @@
       <%= link_to 'Upload Misc Image', new_photo_path, class: "btn btn-large btn-default"%>
     </div>
 <% elsif @photos.count > 0 %>
-
-    <% if current_user.admin? == true %>
-        <h1>Admin - Misc Photos</h1>
-    <% else %>
         <h1>Miscellaneous Photos</h1>
-    <% end %>
-
-    <table class="center table table-striped table-hover">
-      <thead>
-      <tr>
-        <th>Image</th>
-        <th>Subject</th>
-        <th>Bee Block Number</th>
-        <th>Comment</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-      </thead>
-
-      <tbody>
-      <% @photos.each do |photo| %>
+        <table class="center table table-striped table-hover">
+          <thead>
           <tr>
-            <td><%= image_tag(photo.image_url, :width => 100) if photo.image.present? %></td>
-            <td><%= photo.image_subject %></td>
-            <td><%= photo.block_number %></td>
-            <td><%= photo.comment %></td>
-            <td><%= link_to 'Show', photo %></td>
-            <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-            <td><%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <th>Image</th>
+            <th>Subject</th>
+            <th>Bee Block Number</th>
+            <th>Comment</th>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
-      <% end %>
-      </tbody>
-    </table>
-    <br>
-    <div class="center"><%= will_paginate @photos, :param_name => 'photo_page' %></div>
+          </thead>
+
+          <tbody>
+          <% @photos.each do |photo| %>
+              <tr>
+                <td><%= image_tag(photo.image_url, :width => 100) if photo.image.present? %></td>
+                <td><%= photo.image_subject %></td>
+                <td><%= photo.block_number %></td>
+                <td><%= photo.comment %></td>
+                <td><%= link_to 'Show', photo %></td>
+                <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+                <td><%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+        <br>
+        <div class="center"><%= will_paginate @photos, :param_name => 'photo_page' %></div>
 <% end %>
 
 <% if @report_photos.count == 0 %>
 <% else %>
 
-    <% if current_user.admin? == true %>
-        <h1>Admin - Report Photos</h1>
-    <% else %>
-        <h1>Photos from Reports</h1>
-    <% end %>
-    <div class="center"> Note: To delete these photos, please go to your <a href='/reports'>reports page</a></div>
-    <br/>
-    <table class="center table table-striped table-hover">
-      <thead>
-      <tr>
-        <th>Image</th>
-        <th>Subject</th>
-        <th>Comment</th>
-        <th></th>
-        <th></th>
-      </tr>
-      </thead>
 
-      <tbody>
-      <% @report_photos.each do |photo| %>
+        <h1>Photos from Reports</h1>
+
+        <div class="center"> Note: To delete these photos, please go to your <a href='/reports'>reports page</a></div>
+        <br/>
+        <table class="center table table-striped table-hover">
+          <thead>
           <tr>
-            <td><%= image_tag(photo.image_url, :width => 100) if photo.image.present? %></td>
-            <td><%= photo.image_subject %></td>
-            <td><%= photo.comment %></td>
-            <td><%= link_to 'Show', photo %></td>
-            <td><%= link_to 'Edit', edit_report_path(photo) %></td>
+            <th>Image</th>
+            <th>Subject</th>
+            <th>Comment</th>
+            <th></th>
+            <th></th>
           </tr>
-      <% end %>
-      </tbody>
-    </table>
-    <br>
-    <br/>
+          </thead>
+
+          <tbody>
+          <% @report_photos.each do |photo| %>
+              <tr>
+                <td><%= image_tag(photo.image_url, :width => 100) if photo.image.present? %></td>
+                <td><%= photo.image_subject %></td>
+                <td><%= photo.comment %></td>
+                <td><%= link_to 'Show', photo %></td>
+                <td><%= link_to 'Edit', edit_report_path(photo) %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+        <br> <br/>
+    
 
 
 <% end %>

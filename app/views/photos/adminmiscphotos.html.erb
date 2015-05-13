@@ -1,0 +1,38 @@
+<% if current_user.admin? == true %>
+        <h1>Admin - Misc Photos</h1>
+        <table class="center table table-striped table-hover">
+          <thead>
+          <tr>
+            <th>Image</th>
+            <th>Subject</th>
+            <th>Bee Block Number</th>
+            <th>Comment</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @photos.each do |photo| %>
+              <tr>
+                <td><%= image_tag(photo.image_url, :width => 100) if photo.image.present? %></td>
+                <td><%= photo.image_subject %></td>
+                <td><%= photo.block_number %></td>
+                <td><%= photo.comment %></td>
+                <td><%= photo.user.first_name %></td>
+                <td><%= photo.user.last_name %></td>
+                <td><%= photo.user.email %></td>
+                <td><%= link_to 'Show', photo %></td>
+                <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+                <td><%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+        <br>
+        <div class="center"><%= will_paginate @photos, :param_name => 'photo_page' %></div>
+<% end %> 

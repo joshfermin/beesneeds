@@ -2,6 +2,8 @@ Beesneeds::Application.routes.draw do
   resources :photos do
     collection do
       get :recentactivity
+      get :adminmiscphotos
+      get :adminreportphotos
     end
   end
   get "pages/home"
@@ -11,7 +13,8 @@ Beesneeds::Application.routes.draw do
   resources :reports
 
   resources :blocks
-
+  get '/adminmiscphotos', :to => 'photos#adminmiscphotos' 
+  get '/adminreportphotos', :to => 'photos#adminreportphotos'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
