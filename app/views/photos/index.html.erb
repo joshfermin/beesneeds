@@ -31,6 +31,7 @@
           <tr>
             <td><%= image_tag(photo.image_url, :width => 100) if photo.image.present? %></td>
             <td><%= photo.image_subject %></td>
+            <td><%= photo.block_number %></td>
             <td><%= photo.comment %></td>
             <td><%= link_to 'Show', photo %></td>
             <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
