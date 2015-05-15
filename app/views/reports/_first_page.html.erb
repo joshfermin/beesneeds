@@ -21,16 +21,22 @@
 
     <h3><small style="color:rgba(0,0,0,0.90)">Leave row and column blank if you are reporting that you saw no new activity or if you have a miscellaneous observation that is not associated with a particular nest tunnel.</small></h3>
     <br/>
-    <div class="field" >
+    <div class="field" style="display: none;" id="rowDiv">
     <%= f.label 'Select plug row letter:' %>
     <%= f.select :pluga, [[], ['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E'], ['F', 'F'], ['G', 'G'], ['H', 'H'],
                           ['I', 'I'], ['J', 'J']] %>
     </div>
 
-    <div class="field">
+    <div class="field" style="display: none;" id="threeColDiv">
     <%= f.label 'Select plug column number:' %>
-    <%= f.select :plugn, [['', ''], ['1', '1'], ['2', '2'], ['3', '3']]%>
+    <%= f.select :plugn, [['', ''], ['1', '1'], ['2', '2'], ['3', '3']], {}, {:disabled => true, :id => "threeColSel"} %>
     </div>
+
+    <div class="field" style="display: none;" id="fourColDiv">
+    <%= f.label 'Select plug column number:' %>
+    <%= f.select :plugn, [['', ''], ['1', '1'], ['2', '2'], ['3', '3'], ['4','4']], {}, {:disabled => true, :id => "fourColSel"} %>
+    </div>
+
 
     <div class="field">
     <%= f.label "If you're reporting on the presence of a new plug, select a plug type." %>
@@ -84,11 +90,23 @@
 
       function showColumns(block_number)
       {
-        console.log(block_number)
+        $("#rowDiv").show();
         if(/^153...$/.test(block_number)){
-          console.log("regex match");
+          console.log(block_number)
+          $('#threeColSel').attr('disabled', false);
+          $('#threeColDiv').show()
+          $('#fourColSel').attr('disabled', true);
+          $('#fourColDiv').hide()
+        }
+        else {
+          $('#fourColSel').attr('disabled', false);
+          $('#fourColDiv').show()
+          $('#threeColSel').attr('disabled', true);
+          $('#threeColDiv').hide()
         }
       }
+
+       
       
   </script>
 
