@@ -6,9 +6,12 @@
     <%= f.select :activity, [[''],['New Plug (including spider webs)', 'New'], ['Change in plug', 'Change'], ['Something other than plug in tunnel (e.g. earwig, ladybug, ants)', 'Other'],  ['Misc. observation NOT associated with a particular tunnel (i.e. woodpecker/ants at my block, block fell down, etc.)', 'Misc'],[ 'Misc. observation associated with a particular tunnel please enter tunnel letter and number below (i.e. bee in A3, ants in and out of tunnel b2)', 'Misc'], ['There has been no new activity at my block', 'No New']] %>
     </div>
 
+    <% fun_name = "" %>
+    <% fun_name = "eval('hello()')"%>
+
     <div class="field">
     <%= f.label 'Which block is this report for?' %>
-    <%= f.collection_select :block_number, Block.where(:user_id => current_user.id), :block_number, :nickname, :prompt => false, :include_blank => true %>
+    <%= f.collection_select :block_number, Block.where(:user_id => current_user.id), :block_number, :nickname, {:prompt => false}, {:include_blank => true, :onchange => "showColumns($(this).val())"} %>
     </div>
 
     <div class="field">
@@ -77,9 +80,16 @@
               $('#charNum').text(255 - len).css('color', "#000099")
           }
       };
+
+
+      function showColumns(block_number)
+      {
+        console.log(block_number)
+        if(/^153...$/.test(block_number)){
+          console.log("regex match");
+        }
+      }
+      
   </script>
-
-
-
 
 
