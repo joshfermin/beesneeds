@@ -11,7 +11,7 @@
 
     <div class="field">
     <%= f.label 'Which block is this report for?' %>
-    <%= f.collection_select :block_number, Block.where(:user_id => current_user.id), :block_number, :nickname, {:prompt => false}, {:include_blank => true, :onchange => "showColumns($(this).val())"} %>
+    <%= f.collection_select :block_number, Block.where(:user_id => current_user.id), :block_number, :nickname, {:prompt => false, :include_blank => true}, {:onchange => "showColumns($(this).val())"} %>
     </div>
 
     <div class="field">
